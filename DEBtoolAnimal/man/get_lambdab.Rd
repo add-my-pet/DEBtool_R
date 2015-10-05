@@ -4,26 +4,22 @@
 \alias{get_lambdab}
 \title{Computes initial scaled reserve}
 \usage{
-get_lambdab(p, eb, lb0 = NA)
+get_lambdab(p, eb, lambdab0 = NA)
 }
 \arguments{
-\item{x0}{scalar with lower boundary for integration}
+\item{p}{3-vector with parameters: g, k, vv_H^b (see below)}
 
-\item{x1}{scalar with upper boundary for integration}
+\item{eb}{optional scalar with scaled reserve density at birth (default eb = 1)}
+
+\item{lambdab0}{optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)}
 }
 \value{
-scalar with particular incomple beta function
+scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
 }
 \description{
-particular incomplete beta function:
+Obtains scaled length at birth, given the scaled reserve density at birth.
 }
 \examples{
 beta0(0.1, 0.2)
-}
-\seealso{
-Other miscelaneous.functions: \code{\link{C2K}};
-  \code{\link{K2C}}; \code{\link{beta0}};
-  \code{\link{get_lb}}; \code{\link{get_ue0}};
-  \code{\link{tempcorr}}
 }
 

@@ -19,9 +19,8 @@ Computes Celsius from temperatures given in Kelvin
 K2C(293.15)
 }
 \seealso{
-Other miscelaneous.functions: \code{\link{C2K}};
-  \code{\link{beta0}}; \code{\link{get_lambdab}};
-  \code{\link{get_lb}}; \code{\link{get_ue0}};
-  \code{\link{tempcorr}}
+Other miscelaneous functions: \code{\link{C2K}};
+  \code{\link{beta0}}; \code{\link{get_lb}};
+  \code{\link{get_ue0}}; \code{\link{tempcorr}}
 }
 

@@ -21,9 +21,8 @@ particular incomplete beta function:
 beta0(0.1, 0.2)
 }
 \seealso{
-Other miscelaneous.functions: \code{\link{C2K}};
+Other miscelaneous functions: \code{\link{C2K}};
   \code{\link{K2C}}; \code{\link{beta0}};
-  \code{\link{get_lambdab}}; \code{\link{get_ue0}};
-  \code{\link{tempcorr}}
+  \code{\link{get_ue0}}; \code{\link{tempcorr}}
 }
 

@@ -1,38 +1,15 @@
 #' Computes initial scaled reserve
 #'
-#' @description particular incomplete beta function:
-#   B_x1(4/3,0) - B_x0(4/3,0) = \int_x0^x1 t^(4/3-1) (1-t)^(-1) dt.
-#' @family miscelaneous functions
-#' @param x0 scalar with lower boundary for integration
-#' @param x1 scalar with upper boundary for integration
-#' @return scalar with particular incomple beta function
+#' @description Obtains scaled length at birth, given the scaled reserve density at birth.
+#' @family scaled get functions
+#' @param p 3-vector with parameters: g, k, vv_H^b (see below)
+#' @param eb optional scalar with scaled reserve density at birth (default eb = 1)
+#' @param lambdab0 optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+#' @return scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
 #' @examples
 #' beta0(0.1, 0.2)
 #' @export
-
-## get_lb
-# Obtains scaled length at birth, given the scaled reserve density at birth
-
-##
-get_lambdab = function(p, eb, lb0=NA){
-  # created 2007/08/15 by Bas Kooijman; modified 2013/08/19, 2015/01/20
-
-  ## Syntax
-  # [lb, info] = <../get_lb.m *get_lb*>(p, eb, lb0)
-
-  ## Description
-  # Obtains scaled length at birth, given the scaled reserve density at birth.
-  #
-  # Input
-  #
-  # * p: 3-vector with parameters: g, k, v_H^b (see below)
-  # * eb: optional scalar with scaled reserve density at birth (default eb = 1)
-  # * lb0: optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
-  #
-  # Output
-  #
-  # * lb: scalar with scaled length at birth
-  # * info: indicator equals 1 if successful, 0 otherwise
+get_lambdab = function(p, eb, lambdab0=NA){
 
   ## Remarks
   # The theory behind get_lb, get_tb and get_ue0 is discussed in
@@ -51,15 +28,12 @@ get_lambdab = function(p, eb, lb0=NA){
   # In case of no convergence, <get_lb2.html *get_lb2*> is run automatically as backup.
   # Consider the application of <get_lb_foetus.html *get_lb_foetus*> for an alternative initial value.
 
-  ## Example of use
-  # See <../mydata_ue0.m *mydata_ue0*>
+  #  unpack p
+  g <- p[1]   # g = [E_G] * v/ kap * {p_Am}, energy investment ratio
+  k <- p[2]   # k = k_J/ k_M, ratio of maturity and somatic maintenance rate coeff
+  vvHb <- p[3] # vv_H^b = v_H^b/ g^3; v_H^b = U_H^b g^2 kM^3/ (1 - kap) v^2; U_H^b = M_H^b/ {J_EAm}
 
-    #  unpack p
-  g = p[1]   # g = [E_G] * v/ kap * {p_Am}, energy investment ratio
-  k = p[2]   # k = k_J/ k_M, ratio of maturity and somatic maintenance rate coeff
-  vHb = p[3] # v_H^b = U_H^b g^2 kM^3/ (1 - kap) v^2; U_H^b = M_H^b/ {J_EAm}
-
-  lb0=Re(lb0)
+  lambdab0 <- Re(lambdab0)
 
   info = 1
   if (!exists('lb0')){
@@ -67,13 +41,13 @@ get_lambdab = function(p, eb, lb0=NA){
   }
 
   if (k == 1){
-    lb = as.complex(vHb)^(1/ 3) # exact solution for k = 1
+    lambdab = as.complex(vvHb)^(1/ 3) # exact solution for k = 1
     info = 1
   }
 
   if (is.na(lb0)){
-    lb = as.complex(vHb)^(1/3) # exact solution for k = 1
-  } else {lb = lb0}
+    lambdab = as.complex(vvHb)^(1/3) # exact solution for k = 1
+  } else {lambdab = lambdab0}
 
   if (!exists('eb')){
     eb = 1
@@ -88,31 +62,34 @@ get_lambdab = function(p, eb, lb0=NA){
   dx = xb/ n
   x3 = x ^ (1/3)
 
-  b = beta0(x, xb)/ (3 * g)
-  t0 = xb * g * vHb
+  b = beta0(x, xb)/ 3
+  t0 = xb * vvHb
   i = 0
   norm = 1 # make sure that we start Newton Raphson procedure
   ni = 100 # max number of iterations
 
+  print(lambdab)
+
   while (i < ni  && norm > 1e-8 && !is.na(norm)){
-    l = x3 / (xb3/ lb - b)
-    s = (k - x) / (1 - x) * l/ g / x
+    print(x3, xb3)
+    lambda = x3 / (xb3/ lambdab - b)
+    s = (k - x) / (1 - x) * lambda / x
     v = exp( - dx * cumsum(s))
     vb = v[n]
-    r = (g + l)
-    rv = r / v
-    t = t0/ lb^3/ vb - dx * sum(rv)
-    dl = xb3/ lb^2 * l ^ 2 / x3
-    dlnl = dl / l
+    rho = 1 + lambda
+    rhov = rho / v
+    t = t0/ lambdab^3/ vb - dx * sum(rhov)
+    dl = xb3/ lambdab^2 * lambda ^ 2 / x3
+    dlnl = dl / lambdab
     dv = v * exp( - dx * cumsum(s * dlnl))
     dvb = dv[n]
     dlnv = dv / v
     dlnvb = dlnv[n]
-    dr = dl
-    dlnr = dr / r
-    dt = - t0/ lb^3/ vb * (3/ lb + dlnvb) - dx * sum((dlnr - dlnv) * rv)
+    drho = dl
+    dlnrho = drho / rho
+    dt = - t0/ lambdab^3/ vb * (3/ lambdab + dlnvb) - dx * sum((dlnrho - dlnv) * rhov)
     # [i lb t dt] # print progress
-    lb = Re(lb - t/ dt) # Newton Raphson step
+    lambdab = Re(lambdab - t/ dt) # Newton Raphson step
     norm = Re( t^2 )
     i = i + 1
   }
@@ -138,6 +115,6 @@ get_lambdab = function(p, eb, lb0=NA){
     print('warning get_lb: no convergence of l_b')
   }
 
-  return(c(lb, info))
+  return(c(lambdab, info))
 
 }
