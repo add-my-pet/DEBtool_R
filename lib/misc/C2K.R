@@ -1,22 +1,13 @@
-## C2K
-# computes Kelvin from Celsius
-
+#' Kelvin form Celsius
+#' 
+#' converts degrees Celsius to Kelvin
+#' 
+#' @description Obtains Kelvin from temperatures defined in Celsius
+#' @param C: numeric temperature in degrees Celsius
+#' @return K: temperature in Kelvin
+#' @example C2K(20) 
+#' @export
 C2K <- function(C) {
-  ## Description
-  # Obtains Kelvin from temperatures defined in Celsius
-  #
-  # Input
-  #
-  # * C: scalar or matrix in temperatures in degrees Celsius
-  #  
-  # Output
-  #
-  # * K: temperature(s) in Kelvin
-  
-  ## Example 
-  # C2K(20)
-  
-  
   K <- C + 273.15   # K, temperature in Kelvin
   return(K)
 }
