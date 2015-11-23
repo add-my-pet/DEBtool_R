@@ -23,8 +23,6 @@ Calculates the factor with which physiological rates should be multiplied to go 
 tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
 }
 \seealso{
-Other miscelaneous functions: \code{\link{C2K}};
-  \code{\link{K2C}}; \code{\link{beta0}};
-  \code{\link{get_lb}}; \code{\link{get_ue0}}
+Other miscelaneous functions: \code{\link{get_lb}}
 }
 

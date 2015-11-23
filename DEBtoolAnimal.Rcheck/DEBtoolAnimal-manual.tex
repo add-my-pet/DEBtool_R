@@ -1,0 +1,391 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,inconsolata,hyper]{Rd}
+\usepackage{makeidx}
+\usepackage[utf8,latin1]{inputenc}
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge Package `DEBtoolAnimal'}}
+\par\bigskip{\large \today}
+\end{center}
+\begin{description}
+\raggedright{}
+\item[Type]\AsIs{Package}
+\item[Title]\AsIs{DEB functions fot an animal}
+\item[Version]\AsIs{0.1}
+\item[Date]\AsIs{2015-09-30}
+\item[Author]\AsIs{Goncalo M. Marques }\email{goncalo.marques@tecnico.ulisboa.pt}\AsIs{}
+\item[Maintainer]\AsIs{Goncalo M. Marques }\email{goncalo.marques@tecnico.ulisboa.pt}\AsIs{}
+\item[Description]\AsIs{DEB based functions for the std and abj models for animals.}
+\item[License]\AsIs{GPL}
+\item[LazyData]\AsIs{TRUE}
+\item[NeedsCompilation]\AsIs{no}
+\end{description}
+\Rdcontents{\R{} topics documented:}
+\inputencoding{utf8}
+\HeaderA{beta0}{Particular incomplete beta function}{beta0}
+%
+\begin{Description}\relax
+particular incomplete beta function:
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+beta0(x0, x1)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x0}] scalar with lower boundary for integration
+
+\item[\code{x1}] scalar with upper boundary for integration
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with particular incomple beta function
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{K2C}{K2C}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+beta0(0.1, 0.2)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{C2K}{Conversion of Celsius to Kelvin}{C2K}
+%
+\begin{Description}\relax
+Computes Kelvin from temperatures defined in Celsius
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+C2K(C)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{C}] numeric temperature in degrees Celsius
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+temperature in Kelvin
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{K2C}{K2C}};
+\code{\LinkA{beta0}{beta0}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+C2K(20)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{dget\_lambdab2}{Computes derivative d delta/dx}{dget.Rul.lambdab2}
+%
+\begin{Description}\relax
+Obtains the derivative d delta/dx from lambdab, xb and k.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+dget_lambdab2(x, delta, pars)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] scalar x = g/(g + e)
+
+\item[\code{delta}] scalar delta = x e\_H/ (1 - kap)g
+
+\item[\code{pars}] data.frame with lambdab, xb, xb3 (xb\textasciicircum{}1/3), k
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with derivative value d delta/ dx
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}};
+\code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+dget_lambdab2(10^(-6), 0, c(lambdab = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{fnget\_lambdab2}{Computes initial scaled reserve}{fnget.Rul.lambdab2}
+%
+\begin{Description}\relax
+Obtains scaled length at birth, given the scaled reserve density at birth.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+fnget_lambdab2(lambdab, pars)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+
+\item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
+
+\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
+\code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_lambdab(c(10, 1, 0.01), 1, 0.1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_lambdab}{Computes initial scaled reserve}{get.Rul.lambdab}
+%
+\begin{Description}\relax
+Obtains scaled length at birth, given the scaled reserve density at birth.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_lambdab(p, eb, lambdab0 = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+
+\item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
+
+\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
+\code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}}; \code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_lambdab(c(10, 1, 0.01), 1, 0.1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_lambdab2}{Computes initial scaled reserve}{get.Rul.lambdab2}
+%
+\begin{Description}\relax
+Obtains scaled length at birth, given the scaled reserve density at birth.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_lambdab2(p, eb, lambdab0 = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+
+\item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
+
+\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
+\code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_lambdab(c(10, 1, 0.01), 1, 0.1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_lb}{Computes initial scaled reserve}{get.Rul.lb}
+%
+\begin{Description}\relax
+particular incomplete beta function:
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_lb(p, eb, lb0 = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x0}] scalar with lower boundary for integration
+
+\item[\code{x1}] scalar with upper boundary for integration
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with particular incomple beta function
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
+\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+beta0(0.1, 0.2)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_ue0}{Computes initial scaled reserve}{get.Rul.ue0}
+%
+\begin{Description}\relax
+particular incomplete beta function:
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_ue0(p, eb, lb0)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x0}] scalar with lower boundary for integration
+
+\item[\code{x1}] scalar with upper boundary for integration
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with particular incomple beta function
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{tempcorr}{tempcorr}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+beta0(0.1, 0.2)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{K2C}{Conversion of Kelvin to Celsius}{K2C}
+%
+\begin{Description}\relax
+Computes Celsius from temperatures given in Kelvin
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+K2C(K)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{K}] numeric temperature in degrees Kelvin
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+temperature in Kelvin
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{beta0}{beta0}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+K2C(293.15)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{tempcorr}{Conversion of Kelvin to Celsius}{tempcorr}
+%
+\begin{Description}\relax
+Calculates the factor with which physiological rates should be multiplied to go from a reference temperature to a given temperature
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tempcorr(Temp, T_1, Tpars)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{T\_1}] scalar with reference temperature
+
+\item[\code{Tpars}] 1-, 3- or 5-vector with temperature parameters
+
+\item[\code{T}] vector with new temperatures
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+vector with temperature correction factors that affect all rates
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_ue0}{get.Rul.ue0}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
+\end{ExampleCode}
+\end{Examples}
+\printindex{}
+\end{document}

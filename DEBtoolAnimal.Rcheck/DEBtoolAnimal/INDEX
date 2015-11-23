@@ -1,0 +1,10 @@
+C2K                     Conversion of Celsius to Kelvin
+K2C                     Conversion of Kelvin to Celsius
+beta0                   Particular incomplete beta function
+dget_lambdab2           Computes derivative d delta/dx
+fnget_lambdab2          Computes initial scaled reserve
+get_lambdab             Computes initial scaled reserve
+get_lambdab2            Computes initial scaled reserve
+get_lb                  Computes initial scaled reserve
+get_ue0                 Computes initial scaled reserve
+tempcorr                Conversion of Kelvin to Celsius

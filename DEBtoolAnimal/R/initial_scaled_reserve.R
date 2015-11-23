@@ -1,16 +1,15 @@
-## initial_scaled_reserve
-# Gets initial scaled reserve
+#' Gets initial scaled reserve
+#'
+#' @description Obtains scaled length at birth, given the scaled reserve density at birth.
+#' @family scaled get functions
+#' @param f n-vector with scaled functional responses
+#' @param pars 3-vector with parameters: g, k, vv_H^b (see below)
+#' @param lb0 optional n-vector with lengths at birth
+#' @return n-vector with initial scaled reserve: M_E^0/ {J_EAm} (U0), n-vector with length at birth 8Lb) and n-vector with 1's if successful, 0's otherwise (info)
+#' @examples
+#' get_lambdab(c(g = 10, k = 1, vvHb = 0.0005), 1)
+initial_scaled_reserve <- function(f, p, Lb0){
 
-##
-#  function [U0, Lb, info]
-
-initial_scaled_reserve=function(f, p, Lb0){
-
-  #  created 2007/08/06 by Bas Kooyman; modified 2009/09/29
-  
-  ## Syntax
-  # [U0, Lb, info] = <../initial_scaled_reserve.m *initial_scaled_reserve*>(f, p, Lb0)
-  
   ## Description
   # Gets initial scaled reserve
   #
@@ -25,23 +24,23 @@ initial_scaled_reserve=function(f, p, Lb0){
   # * U0: n-vector with initial scaled reserve: M_E^0/ {J_EAm}
   # * Lb: n-vector with length at birth
   # * info: n-vector with 1's if successful, 0's otherwise
-  
+
   ## Remarks
   # Like <get_ue0.html *get_ue0*>, but allows for vector arguments and
   # input and output is not downscaled to dimensionless quantities,
-  
-  ## Example of use 
+
+  ## Example of use
   # p = [.8 .42 1.7 1.7 3.24 .012]; initial_scaled_reserve(1,p)
-  
+
   #  unpack parameters
   VHb = p[1] # d mm^2, scaled maturity at birth: M_H^b/[[1-kap]{J_EAm}]
   g   = p[2] # -, energy investment ratio
   kJ  = p[3] # 1/d, maturity maintenance rate coefficient
   kM  = p[4] # 1/d, somatic maintenance rate coefficient
   v   = p[5] # mm/d, energy conductance
-  
+
   # if kJ = kM: VHb = g * Lb^3/ v;
-  
+
   nf = length(f)
   U0 = rep(0, length=nf)
   Lb = rep(0, length=nf)
@@ -62,6 +61,6 @@ initial_scaled_reserve=function(f, p, Lb0){
     uE0=uE0lbinfo[1]
     U0[i] = uE0 * v^2/ g^2/ kM^3
   }
-  
+
   return(c(U0,Lb, info))
 }

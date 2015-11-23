@@ -4,10 +4,10 @@
 \alias{get_ue0}
 \title{Computes initial scaled reserve}
 \usage{
-get_ue0(p, eb, lb0)
+get_ue0(pars, eb, lb0)
 }
 \arguments{
-\item{x0}{scalar with lower boundary for integration}
+\item{pars}{1 or 3 -vector with parameters g, k_J/ k_M, v_H^b, see get_lb}
 
 \item{x1}{scalar with upper boundary for integration}
 }
@@ -15,14 +15,16 @@ get_ue0(p, eb, lb0)
 scalar with particular incomple beta function
 }
 \description{
-particular incomplete beta function:
+Obtains the initial scaled reserve given the scaled reserve density at birth.
+Function get_ue0 does so for eggs, get_ue0_foetus for foetuses.
+Specification of length at birth as third input by-passes its computation,
+so if you want to specify an initial value for this quantity, you should use get_lb directly.
 }
 \examples{
 beta0(0.1, 0.2)
 }
 \seealso{
-Other miscelaneous functions: \code{\link{C2K}};
-  \code{\link{K2C}}; \code{\link{beta0}};
-  \code{\link{get_lb}}; \code{\link{tempcorr}}
+Other get functions: \code{\link{get_nue0}};
+  \code{\link{get_ubarE0}}
 }
 

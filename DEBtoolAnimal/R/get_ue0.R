@@ -1,9 +1,11 @@
 #' Computes initial scaled reserve
 #'
-#' @description particular incomplete beta function:
-#   B_x1(4/3,0) - B_x0(4/3,0) = \int_x0^x1 t^(4/3-1) (1-t)^(-1) dt.
-#' @family miscelaneous functions
-#' @param x0 scalar with lower boundary for integration
+#' @description Obtains the initial scaled reserve given the scaled reserve density at birth.
+#' Function get_ue0 does so for eggs, get_ue0_foetus for foetuses.
+#' Specification of length at birth as third input by-passes its computation,
+#' so if you want to specify an initial value for this quantity, you should use get_lb directly.
+#' @family get functions
+#' @param pars 1 or 3 -vector with parameters g, k_J/ k_M, v_H^b, see get_lb
 #' @param x1 scalar with upper boundary for integration
 #' @return scalar with particular incomple beta function
 #' @examples
@@ -15,7 +17,7 @@
 
 ##
 #  function [uE0, lb, info] =
-get_ue0=function(p, eb, lb0){
+get_ue0 <- function(pars, eb, lb0){
   # created at 2007/07/27 by Bas Kooijman; modified 2010/05/02
 
   ## Syntax

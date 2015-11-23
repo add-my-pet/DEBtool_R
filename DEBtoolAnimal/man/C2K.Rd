@@ -19,8 +19,7 @@ Computes Kelvin from temperatures defined in Celsius
 C2K(20)
 }
 \seealso{
-Other miscelaneous functions: \code{\link{K2C}};
-  \code{\link{beta0}}; \code{\link{get_lb}};
-  \code{\link{get_ue0}}; \code{\link{tempcorr}}
+Other miscellaneous functions: \code{\link{K2C}};
+  \code{\link{beta0}}
 }
 

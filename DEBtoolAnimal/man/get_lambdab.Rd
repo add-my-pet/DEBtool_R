@@ -4,10 +4,10 @@
 \alias{get_lambdab}
 \title{Computes initial scaled reserve}
 \usage{
-get_lambdab(p, eb, lambdab0 = NA)
+get_lambdab(pars, eb = 1, lambdab0 = NA)
 }
 \arguments{
-\item{p}{3-vector with parameters: g, k, vv_H^b (see below)}
+\item{pars}{3-vector with parameters: g, k, vv_H^b (see below)}
 
 \item{eb}{optional scalar with scaled reserve density at birth (default eb = 1)}
 
@@ -20,6 +20,13 @@ scalar with scaled length at birth (lambdab) and indicator equals 1 if successfu
 Obtains scaled length at birth, given the scaled reserve density at birth.
 }
 \examples{
-beta0(0.1, 0.2)
+get_lambdab(c(g = 10, k = 1, vvHb = 0.0005), 1)
+}
+\seealso{
+Other scaled get functions: \code{\link{dget_lambdab2}};
+  \code{\link{dget_lbarb2}}; \code{\link{fnget_lambdab2}};
+  \code{\link{fnget_lbarb2}}; \code{\link{get_lambdab2}};
+  \code{\link{get_lbarb2}}; \code{\link{get_lbarb}};
+  \code{\link{initial_scaled_reserve}}
 }
 

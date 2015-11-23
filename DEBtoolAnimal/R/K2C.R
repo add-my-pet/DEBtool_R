@@ -1,7 +1,7 @@
 #' Conversion of Kelvin to Celsius
 #'
 #' @description Computes Celsius from temperatures given in Kelvin
-#' @family miscelaneous functions
+#' @family miscellaneous functions
 #' @param K numeric temperature in degrees Kelvin
 #' @return temperature in Kelvin
 #' @examples
