@@ -25,7 +25,6 @@ get_ubarE0(g = 10, lbarb = 0.01)
 get_ubarE0(g = 10, k = 0.7, vbarHb = 5e-4)
 }
 \seealso{
-Other get functions: \code{\link{get_nue0}};
-  \code{\link{get_ue0}}
+Other get functions: \code{\link{get_ue0}}
 }
 

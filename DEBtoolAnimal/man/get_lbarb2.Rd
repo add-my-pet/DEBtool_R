@@ -21,10 +21,8 @@ Obtains scaled length at birth, given the scaled reserve density at birth. Like 
 get_lbarb(c(g = 10, k = 1, vbarHb = 0.01), 1)
 }
 \seealso{
-Other scaled get functions: \code{\link{dget_lambdab2}};
-  \code{\link{dget_lbarb2}}; \code{\link{fnget_lambdab2}};
-  \code{\link{fnget_lbarb2}}; \code{\link{get_lambdab2}};
-  \code{\link{get_lambdab}}; \code{\link{get_lbarb}};
+Other scaled get functions: \code{\link{dget_lbarb2}};
+  \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb}};
   \code{\link{initial_scaled_reserve}}
 }
 

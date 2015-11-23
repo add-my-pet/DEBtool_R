@@ -24,7 +24,6 @@ so if you want to specify an initial value for this quantity, you should use get
 beta0(0.1, 0.2)
 }
 \seealso{
-Other get functions: \code{\link{get_nue0}};
-  \code{\link{get_ubarE0}}
+Other get functions: \code{\link{get_ubarE0}}
 }
 

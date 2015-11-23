@@ -23,9 +23,7 @@ Obtains the derivative d delta/dx from lbarb, xb and k.
 dget_lbarb2(10^(-6), 0, c(lbarb = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
 }
 \seealso{
-Other scaled get functions: \code{\link{dget_lambdab2}};
-  \code{\link{fnget_lambdab2}}; \code{\link{fnget_lbarb2}};
-  \code{\link{get_lambdab2}}; \code{\link{get_lambdab}};
+Other scaled get functions: \code{\link{fnget_lbarb2}};
   \code{\link{get_lbarb2}}; \code{\link{get_lbarb}};
   \code{\link{initial_scaled_reserve}}
 }

@@ -21,9 +21,7 @@ Computes f using the ode solver for delta(x), for finding lbarb.
 fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vvHb = 0.001, k = 1))
 }
 \seealso{
-Other scaled get functions: \code{\link{dget_lambdab2}};
-  \code{\link{dget_lbarb2}}; \code{\link{fnget_lambdab2}};
-  \code{\link{get_lambdab2}}; \code{\link{get_lambdab}};
+Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{get_lbarb2}}; \code{\link{get_lbarb}};
   \code{\link{initial_scaled_reserve}}
 }
