@@ -7,7 +7,7 @@
 get_lbarb2(pars, eb = NA)
 }
 \arguments{
-\item{pars}{3-vector with parameters: g, k, vv_H^b (see below)}
+\item{pars}{3-vector with parameters: g, k, vbar_H^b}
 
 \item{eb}{optional scalar with scaled reserve density at birth (default eb = 1)}
 }
@@ -18,11 +18,12 @@ scalar with scaled length at birth (lbarb) and indicator equals 1 if successful,
 Obtains scaled length at birth, given the scaled reserve density at birth. Like get_lbarb, but uses a shooting method in 1 variable.
 }
 \examples{
-get_lbarb(c(g = 10, k = 1, vbarHb = 0.01), 1)
+get_lbarb2(c(g = 10, k = 1, vbarHb = 0.01), 1)
 }
 \seealso{
 Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb}};
+  \code{\link{get_lb}};
   \code{\link{initial_scaled_reserve}}
 }
 

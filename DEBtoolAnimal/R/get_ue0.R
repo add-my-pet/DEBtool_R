@@ -6,76 +6,30 @@
 #' so if you want to specify an initial value for this quantity, you should use get_lb directly.
 #' @family get functions
 #' @param pars 1 or 3 -vector with parameters g, k_J/ k_M, v_H^b, see get_lb
-#' @param x1 scalar with upper boundary for integration
-#' @return scalar with particular incomple beta function
+#' @param eb optional scalar with scaled reserbe density at birth (default: eb = 1)
+#' @param lb0 optional scalar with scaled length at birth (default: lb is optained from get_lb)
+#' @return uE0 scalar with scaled reserve at t=0: $U_E^0 g^2 k_M^3/ v^2$ with $U_E^0 = M_E^0/ \{J_{EAm}\}$, lb scalar with scaled length at birth and info indicator equals 1 if successful, 0 otherwise
 #' @examples
-#' beta0(0.1, 0.2)
+#' get_ue0(pars = c(0.42, 1, 0.066), eb = 1, lb0 = 0.4042)
 #' @export
-
-## get_ue0
-# gets initial scaled reserve
-
-##
-#  function [uE0, lb, info] =
-get_ue0 <- function(pars, eb, lb0){
-  # created at 2007/07/27 by Bas Kooijman; modified 2010/05/02
-
-  ## Syntax
-  # [uE0, lb, info] = <../get_ue0.m *get_ue0*>(p, eb, lb0)
-
-  ## Description
-  # Obtains the initial scaled reserve given the scaled reserve density at birth.
-  # Function get_ue0 does so for eggs, get_ue0_foetus for foetuses.
-  # Specification of length at birth as third input by-passes its computation,
-  #   so if you want to specify an initial value for this quantity, you should use get_lb directly.
-  #
-  # Input
-  #
-  # * p: 1 or 3 -vector with parameters g, k_J/ k_M, v_H^b, see get_lb
-  # * eb: optional scalar with scaled reserbe density at birth
-  #   (default: eb = 1)
-  # * lb0: optional scalar with scaled length at birth
-  #   (default: lb is optained from get_lb)
-  #
-  # Output
-  #
-  # * uE0: scaled with scaled reserve at t=0: $U_E^0 g^2 k_M^3/ v^2$
-    #   with $U_E^0 = M_E^0/ \{J_{EAm}\}$
-    # * lb: scalar with scaled length at birth
-  # * info: indicator equals 1 if successful, 0 otherwise
-
-  ## Remarks
-  # See <get_ue0_foetus.html *get_ue0_foetus*> for foetal development.
-  # See <initial_scaled_reserve.html *initial_scaled_reserve*>, for a non-dimensionless scaling.
-
-  ## Example of use
-  # see <../mydata_ue0.m *mydata_ue0*>
-
-  if (!exists('eb')) {
-    eb = 1 # maximum value as juvenile
-  }
-
-  if (!exists('lb0')){
-    if (length(p) < 3) {
-      print('not enough input parameters, see get_lb \n');
-      uE0 = NA
-      lb = NA
-      info = 0
+get_ue0 <- function(pars, eb = 1, lb0 = NA){
+  with(as.list(pars), {
+    if (is.na(lb0)){
+      if (length(p) < 3) {
+        print("not enough input parameters, see get_lb")
+        return(c(uE0 = NA, lb = NA, info = 0))
+      }
+      lbinfo = get_lb(p = pars, eb = eb )
+      lb = lbinfo[1]
+      info = lbinfo[2]
+    } else {
+      lb = lb0
+      info = 1
     }
-  lbinfo = get_lb(p, eb)
-  lb=lbinfo[1]
-  info=lbinfo[2]
-  } else {
-    lb = lb0
-    info = 1
-  }
 
+    xb = g/ (eb + g)
+    uE0 = (3 * g/ (3 * g * xb^(1/ 3)/ lb - beta0(0, xb)))^3
 
-  # unpack p
-  g = p[1]  # energy investment ratio
-
-  xb = g/ (eb + g)
-  uE0 = (3 * g/ (3 * g * xb^(1/ 3)/ lb - beta0(0, xb)))^3
-
-  return(c(uE0, lb, info))
+    return(c(uE0, lb, info))
+  })
 }

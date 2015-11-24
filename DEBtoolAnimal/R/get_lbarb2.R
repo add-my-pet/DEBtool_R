@@ -2,16 +2,16 @@
 #'
 #' @description Obtains scaled length at birth, given the scaled reserve density at birth. Like get_lbarb, but uses a shooting method in 1 variable.
 #' @family scaled get functions
-#' @param pars 3-vector with parameters: g, k, vv_H^b (see below)
+#' @param pars 3-vector with parameters: g, k, vbar_H^b
 #' @param eb optional scalar with scaled reserve density at birth (default eb = 1)
 #' @return scalar with scaled length at birth (lbarb) and indicator equals 1 if successful, 0 otherwise (info)
 #' @examples
-#' get_lbarb(c(g = 10, k = 1, vbarHb = 0.01), 1)
+#' get_lbarb2(c(g = 10, k = 1, vbarHb = 0.01), 1)
 #' @export
 get_lbarb2 <- function(pars, eb = NA){
   with(as.list(pars), {
 
-    if (!exists('eb') || is.na(eb))  eb <- 1
+    if (is.na(eb))  eb <- 1
 
     xb <- g/ (eb + g)
     xb3 <- xb^(1/3)

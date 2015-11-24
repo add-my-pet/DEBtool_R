@@ -1,8 +1,8 @@
-#' Computes initial scaled reserve
+#' Computes scaled length at birth lbarb
 #'
 #' @description Obtains scaled length at birth, given the scaled reserve density at birth.
 #' @family scaled get functions
-#' @param pars 3-vector with parameters: g, k, vv_H^b (see below)
+#' @param pars 3-vector with parameters: g, k, vbar_H^b
 #' @param eb optional scalar with scaled reserve density at birth (default eb = 1)
 #' @param lbarb0 optional scalar with initial estimate for scaled length at birth (default lbarb0: lbarb for k = 1)
 #' @return scalar with scaled length at birth (lbarb) and indicator equals 1 if successful, 0 otherwise (info)

@@ -4,27 +4,27 @@
 \alias{initial_scaled_reserve}
 \title{Gets initial scaled reserve}
 \usage{
-initial_scaled_reserve(f, p, Lb0)
+initial_scaled_reserve(f, pars, Lb0 = NA)
 }
 \arguments{
 \item{f}{n-vector with scaled functional responses}
 
-\item{pars}{3-vector with parameters: g, k, vv_H^b (see below)}
+\item{pars}{5-vector with parameters: VHb, g, kJ, kM, v}
 
-\item{lb0}{optional n-vector with lengths at birth}
+\item{Lb0}{optional n-vector with lengths at birth}
 }
 \value{
-n-vector with initial scaled reserve: M_E^0/ {J_EAm} (U0), n-vector with length at birth 8Lb) and n-vector with 1's if successful, 0's otherwise (info)
+n-vector with initial scaled reserve: M_E^0/ {J_EAm} (U0), n-vector with length at birth (Lb) and n-vector with 1's if successful, 0's otherwise (info)
 }
 \description{
-Obtains scaled length at birth, given the scaled reserve density at birth.
+Gets initial scaled reserve.
 }
 \examples{
-get_lambdab(c(g = 10, k = 1, vvHb = 0.0005), 1)
+initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .42, kJ = 1.7, kM = 1.7, v = 3.24))
 }
 \seealso{
 Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb2}};
-  \code{\link{get_lbarb}}
+  \code{\link{get_lbarb}}; \code{\link{get_lb}}
 }
 

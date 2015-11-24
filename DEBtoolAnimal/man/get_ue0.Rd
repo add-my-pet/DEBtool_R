@@ -4,15 +4,17 @@
 \alias{get_ue0}
 \title{Computes initial scaled reserve}
 \usage{
-get_ue0(pars, eb, lb0)
+get_ue0(pars, eb = 1, lb0 = NA)
 }
 \arguments{
 \item{pars}{1 or 3 -vector with parameters g, k_J/ k_M, v_H^b, see get_lb}
 
-\item{x1}{scalar with upper boundary for integration}
+\item{eb}{optional scalar with scaled reserbe density at birth (default: eb = 1)}
+
+\item{lb0}{optional scalar with scaled length at birth (default: lb is optained from get_lb)}
 }
 \value{
-scalar with particular incomple beta function
+uE0 scalar with scaled reserve at t=0: $U_E^0 g^2 k_M^3/ v^2$ with $U_E^0 = M_E^0/ \{J_{EAm}\}$, lb scalar with scaled length at birth and info indicator equals 1 if successful, 0 otherwise
 }
 \description{
 Obtains the initial scaled reserve given the scaled reserve density at birth.
@@ -21,7 +23,7 @@ Specification of length at birth as third input by-passes its computation,
 so if you want to specify an initial value for this quantity, you should use get_lb directly.
 }
 \examples{
-beta0(0.1, 0.2)
+get_ue0(pars = c(0.42, 1, 0.066), eb = 1, lb0 = 0.4042)
 }
 \seealso{
 Other get functions: \code{\link{get_ubarE0}}
