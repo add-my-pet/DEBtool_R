@@ -51,9 +51,8 @@ scalar with particular incomple beta function
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
-\code{\LinkA{K2C}{K2C}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+Other miscellaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{K2C}{K2C}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -85,9 +84,8 @@ temperature in Kelvin
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{K2C}{K2C}};
-\code{\LinkA{beta0}{beta0}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+Other miscellaneous functions: \code{\LinkA{K2C}{K2C}};
+\code{\LinkA{beta0}{beta0}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -96,15 +94,15 @@ C2K(20)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
-\HeaderA{dget\_lambdab2}{Computes derivative d delta/dx}{dget.Rul.lambdab2}
+\HeaderA{dget\_lbarb2}{Computes derivative d delta/dx}{dget.Rul.lbarb2}
 %
 \begin{Description}\relax
-Obtains the derivative d delta/dx from lambdab, xb and k.
+Obtains the derivative d delta/dx from lbarb, xb and k.
 \end{Description}
 %
 \begin{Usage}
 \begin{verbatim}
-dget_lambdab2(x, delta, pars)
+dget_lbarb2(x, delta, pars)
 \end{verbatim}
 \end{Usage}
 %
@@ -114,7 +112,7 @@ dget_lambdab2(x, delta, pars)
 
 \item[\code{delta}] scalar delta = x e\_H/ (1 - kap)g
 
-\item[\code{pars}] data.frame with lambdab, xb, xb3 (xb\textasciicircum{}1/3), k
+\item[\code{pars}] data.frame with lbarb, xb, xb3 (xb\textasciicircum{}1/3), k
 \end{ldescription}
 \end{Arguments}
 %
@@ -123,17 +121,56 @@ scalar with derivative value d delta/ dx
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other scaled get functions: \code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}};
-\code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+Other scaled get functions: \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
+\code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-dget_lambdab2(10^(-6), 0, c(lambdab = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
+dget_lbarb2(10^(-6), 0, c(lbarb = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
-\HeaderA{fnget\_lambdab2}{Computes initial scaled reserve}{fnget.Rul.lambdab2}
+\HeaderA{fnget\_lbarb2}{Computes f using the ode solver for delta(x), for finding lbarb}{fnget.Rul.lbarb2}
+%
+\begin{Description}\relax
+Computes f using the ode solver for delta(x), for finding lbarb.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+fnget_lbarb2(lbarb, pars)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{lbarb}] scalar with scaled length at birth (lbarb = lb/ g)
+
+\item[\code{pars}] data.frame with lbarb, xb, xb3 (xb\textasciicircum{}1/3), k
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with function f which when zero indicates lbarb
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
+\code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vbarHb = 0.001, k = 1))
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_lb}{Computes scaled length at birth}{get.Rul.lb}
 %
 \begin{Description}\relax
 Obtains scaled length at birth, given the scaled reserve density at birth.
@@ -141,36 +178,38 @@ Obtains scaled length at birth, given the scaled reserve density at birth.
 %
 \begin{Usage}
 \begin{verbatim}
-fnget_lambdab2(lambdab, pars)
+get_lb(pars, eb = 1, lb0 = as.numeric(pars[3]^(1/3)))
 \end{verbatim}
 \end{Usage}
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+\item[\code{pars}] 3-vector with parameters: g, k, v\_H\textasciicircum{}b
 
 \item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
 
-\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+\item[\code{lbarb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
 \end{ldescription}
 \end{Arguments}
 %
 \begin{Value}
-scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
-\code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-get_lambdab(c(10, 1, 0.01), 1, 0.1)
+get_lb(c(g = 10, k = 1, vHb = 0.5), 1)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
-\HeaderA{get\_lambdab}{Computes initial scaled reserve}{get.Rul.lambdab}
+\HeaderA{get\_lbarb}{Computes scaled length at birth lbarb}{get.Rul.lbarb}
 %
 \begin{Description}\relax
 Obtains scaled length at birth, given the scaled reserve density at birth.
@@ -178,87 +217,92 @@ Obtains scaled length at birth, given the scaled reserve density at birth.
 %
 \begin{Usage}
 \begin{verbatim}
-get_lambdab(p, eb, lambdab0 = NA)
+get_lbarb(pars, eb = 1, lbarb0 = NA)
 \end{verbatim}
 \end{Usage}
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+\item[\code{pars}] 3-vector with parameters: g, k, vbar\_H\textasciicircum{}b
 
 \item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
 
-\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
+\item[\code{lbarb0}] optional scalar with initial estimate for scaled length at birth (default lbarb0: lbarb for k = 1)
 \end{ldescription}
 \end{Arguments}
 %
 \begin{Value}
-scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+scalar with scaled length at birth (lbarb) and indicator equals 1 if successful, 0 otherwise (info)
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
-\code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}}; \code{\LinkA{get\_lambdab2}{get.Rul.lambdab2}}
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-get_lambdab(c(10, 1, 0.01), 1, 0.1)
+get_lbarb(c(g = 10, k = 1, vbarHb = 0.0005), 1)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
-\HeaderA{get\_lambdab2}{Computes initial scaled reserve}{get.Rul.lambdab2}
+\HeaderA{get\_lbarb2}{Computes initial scaled reserve}{get.Rul.lbarb2}
 %
 \begin{Description}\relax
-Obtains scaled length at birth, given the scaled reserve density at birth.
+Obtains scaled length at birth, given the scaled reserve density at birth. Like get\_lbarb, but uses a shooting method in 1 variable.
 \end{Description}
 %
 \begin{Usage}
 \begin{verbatim}
-get_lambdab2(p, eb, lambdab0 = NA)
+get_lbarb2(pars, eb = NA)
 \end{verbatim}
 \end{Usage}
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{p}] 3-vector with parameters: g, k, vv\_H\textasciicircum{}b (see below)
+\item[\code{pars}] 3-vector with parameters: g, k, vbar\_H\textasciicircum{}b
 
 \item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
-
-\item[\code{lambdab0}] optional scalar with initial estimate for scaled length at birth (default lambdab0: lambdab for k = 1)
 \end{ldescription}
 \end{Arguments}
 %
 \begin{Value}
-scalar with scaled length at birth (lambdab) and indicator equals 1 if successful, 0 otherwise (info)
+scalar with scaled length at birth (lbarb) and indicator equals 1 if successful, 0 otherwise (info)
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other scaled get functions: \code{\LinkA{dget\_lambdab2}{dget.Rul.lambdab2}};
-\code{\LinkA{fnget\_lambdab2}{fnget.Rul.lambdab2}}; \code{\LinkA{get\_lambdab}{get.Rul.lambdab}}
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
+\code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-get_lambdab(c(10, 1, 0.01), 1, 0.1)
+get_lbarb2(c(g = 10, k = 1, vbarHb = 0.01), 1)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
-\HeaderA{get\_lb}{Computes initial scaled reserve}{get.Rul.lb}
+\HeaderA{get\_ubarE0}{Computes initial scaled reserve density at birth}{get.Rul.ubarE0}
 %
 \begin{Description}\relax
-particular incomplete beta function:
+Obtains the initial scaled reserve given the scaled reserve density at birth.
+Function get\_ue0 does so for eggs, get\_ue0\_foetus for foetuses.
+Specification of length at birth as third input by-passes its computation,
+so if you want to specify an initial value for this quantity, you should use get\_lb directly.
 \end{Description}
 %
 \begin{Usage}
 \begin{verbatim}
-get_lb(p, eb, lb0 = NA)
+get_ubarE0(g = NA, k = NA, vbarHb = NA, eb = 1, lbarb = NA)
 \end{verbatim}
 \end{Usage}
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{x0}] scalar with lower boundary for integration
+\item[\code{eb:}] optional scalar with scaled reserbe density at birth
 
 \item[\code{x1}] scalar with upper boundary for integration
 \end{ldescription}
@@ -269,50 +313,90 @@ scalar with particular incomple beta function
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
-\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
-\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+Other get functions: \code{\LinkA{get\_ue0}{get.Rul.ue0}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-beta0(0.1, 0.2)
+get_ubarE0(g = 10, lbarb = 0.01)
+get_ubarE0(g = 10, k = 0.7, vbarHb = 5e-4)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
 \HeaderA{get\_ue0}{Computes initial scaled reserve}{get.Rul.ue0}
 %
 \begin{Description}\relax
-particular incomplete beta function:
+Obtains the initial scaled reserve given the scaled reserve density at birth.
+Function get\_ue0 does so for eggs, get\_ue0\_foetus for foetuses.
+Specification of length at birth as third input by-passes its computation,
+so if you want to specify an initial value for this quantity, you should use get\_lb directly.
 \end{Description}
 %
 \begin{Usage}
 \begin{verbatim}
-get_ue0(p, eb, lb0)
+get_ue0(pars, eb = 1, lb0 = NA)
 \end{verbatim}
 \end{Usage}
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{x0}] scalar with lower boundary for integration
+\item[\code{pars}] 1 or 3 -vector with parameters g, k\_J/ k\_M, v\_H\textasciicircum{}b, see get\_lb
 
-\item[\code{x1}] scalar with upper boundary for integration
+\item[\code{eb}] optional scalar with scaled reserbe density at birth (default: eb = 1)
+
+\item[\code{lb0}] optional scalar with scaled length at birth (default: lb is optained from get\_lb)
 \end{ldescription}
 \end{Arguments}
 %
 \begin{Value}
-scalar with particular incomple beta function
+uE0 scalar with scaled reserve at t=0: \$U\_E\textasciicircum{}0 g\textasciicircum{}2 k\_M\textasciicircum{}3/ v\textasciicircum{}2\$ with \$U\_E\textasciicircum{}0 = M\_E\textasciicircum{}0/ \{J\_EAm\}\$, lb scalar with scaled length at birth and info indicator equals 1 if successful, 0 otherwise
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
-\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
-\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{tempcorr}{tempcorr}}
+Other get functions: \code{\LinkA{get\_ubarE0}{get.Rul.ubarE0}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
-beta0(0.1, 0.2)
+get_ue0(pars = c(0.42, 1, 0.066), eb = 1, lb0 = 0.4042)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{initial\_scaled\_reserve}{Gets initial scaled reserve}{initial.Rul.scaled.Rul.reserve}
+%
+\begin{Description}\relax
+Gets initial scaled reserve.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+initial_scaled_reserve(f, pars, Lb0 = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{f}] n-vector with scaled functional responses
+
+\item[\code{pars}] 5-vector with parameters: VHb, g, kJ, kM, v
+
+\item[\code{Lb0}] optional n-vector with lengths at birth
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+n-vector with initial scaled reserve: M\_E\textasciicircum{}0/ J\_EAm (U0), n-vector with length at birth (Lb) and n-vector with 1's if successful, 0's otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .42, kJ = 1.7, kM = 1.7, v = 3.24))
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -339,9 +423,8 @@ temperature in Kelvin
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
-\code{\LinkA{beta0}{beta0}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{get\_ue0}{get.Rul.ue0}}; \code{\LinkA{tempcorr}{tempcorr}}
+Other miscellaneous functions: \code{\LinkA{C2K}{C2K}};
+\code{\LinkA{beta0}{beta0}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -375,12 +458,6 @@ tempcorr(Temp, T_1, Tpars)
 \begin{Value}
 vector with temperature correction factors that affect all rates
 \end{Value}
-%
-\begin{SeeAlso}\relax
-Other miscelaneous functions: \code{\LinkA{C2K}{C2K}};
-\code{\LinkA{K2C}{K2C}}; \code{\LinkA{beta0}{beta0}};
-\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_ue0}{get.Rul.ue0}}
-\end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}

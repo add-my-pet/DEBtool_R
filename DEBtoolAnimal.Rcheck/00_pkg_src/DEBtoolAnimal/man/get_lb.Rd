@@ -2,27 +2,30 @@
 % Please edit documentation in R/get_lb.R
 \name{get_lb}
 \alias{get_lb}
-\title{Computes initial scaled reserve}
+\title{Computes scaled length at birth}
 \usage{
-get_lb(p, eb, lb0 = NA)
+get_lb(pars, eb = 1, lb0 = as.numeric(pars[3]^(1/3)))
 }
 \arguments{
-\item{x0}{scalar with lower boundary for integration}
+\item{pars}{3-vector with parameters: g, k, v_H^b}
 
-\item{x1}{scalar with upper boundary for integration}
+\item{eb}{optional scalar with scaled reserve density at birth (default eb = 1)}
+
+\item{lbarb0}{optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)}
 }
 \value{
-scalar with particular incomple beta function
+scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
 }
 \description{
-particular incomplete beta function:
+Obtains scaled length at birth, given the scaled reserve density at birth.
 }
 \examples{
-beta0(0.1, 0.2)
+get_lb(c(g = 10, k = 1, vHb = 0.5), 1)
 }
 \seealso{
-Other miscelaneous functions: \code{\link{C2K}};
-  \code{\link{K2C}}; \code{\link{beta0}};
-  \code{\link{get_ue0}}; \code{\link{tempcorr}}
+Other scaled get functions: \code{\link{dget_lbarb2}};
+  \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb2}};
+  \code{\link{get_lbarb}};
+  \code{\link{initial_scaled_reserve}}
 }
 
