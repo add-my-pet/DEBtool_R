@@ -2,10 +2,12 @@
 #'
 #' @description Calculates the factor with which physiological rates should be multiplied to go from a reference temperature to a given temperature
 #' @family miscelaneous functions
-#' @param T vector with new temperatures
+#' @param Temp vector with new temperatures
 #' @param T_1 scalar with reference temperature
 #' @param Tpars 1-, 3- or 5-vector with temperature parameters
 #' @return vector with temperature correction factors that affect all rates
+#' @details This is a test \eqn{\theta}
+#' \deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{\theta(T) = \theta(T_1) exp(T_A/T_1 - T_A/T)}
 #' @examples tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
 #' @export
 tempcorr <- function(Temp, T_1, Tpars){

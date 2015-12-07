@@ -1,0 +1,83 @@
+* using log directory 'D:/Dados/Work/Development/DEBtool_R/DEBtoolAnimal.Rcheck'
+* using R version 3.2.2 (2015-08-14)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* using option '--as-cran'
+* checking for file 'DEBtoolAnimal/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'DEBtoolAnimal' version '0.1'
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking whether package 'DEBtoolAnimal' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... NOTE
+Non-standard files/directories found at top level:
+  'Rd.sty' 'zi4.sty'
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'get_lb'
+  'lb0'
+Documented arguments not in \usage in documentation object 'get_lb':
+  'lbarb0'
+
+Undocumented arguments in documentation object 'get_ubarE0'
+  'g' 'k' 'vbarHb' 'eb' 'lbarb'
+Documented arguments not in \usage in documentation object 'get_ubarE0':
+  'eb:' 'x1'
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... ERROR
+Running examples in 'DEBtoolAnimal-Ex.R' failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: fnget_lbarb2
+> ### Title: Computes f using the ode solver for delta(x), for finding lbarb
+> ### Aliases: fnget_lbarb2
+> 
+> ### ** Examples
+> 
+> fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vbarHb = 0.001, k = 1))
+Error in eval(expr, envir, enclos) : could not find function "ode"
+Calls: fnget_lbarb2 -> with -> with.default -> eval -> eval
+Execution halted
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+LaTeX errors found:
+* checking PDF version of manual without hyperrefs or index ... OK
+* DONE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE

@@ -2,22 +2,30 @@
 % Please edit documentation in R/tempcorr.R
 \name{tempcorr}
 \alias{tempcorr}
-\title{Conversion of Kelvin to Celsius}
+\title{Temperature correction}
 \usage{
 tempcorr(Temp, T_1, Tpars)
 }
 \arguments{
+\item{Temp}{vector with new temperatures}
+
 \item{T_1}{scalar with reference temperature}
 
 \item{Tpars}{1-, 3- or 5-vector with temperature parameters}
-
-\item{T}{vector with new temperatures}
 }
 \value{
 vector with temperature correction factors that affect all rates
 }
 \description{
 Calculates the factor with which physiological rates should be multiplied to go from a reference temperature to a given temperature
+}
+\details{
+Temperature impacts metabolic rates. These impact is modeled in its most simplest way (1 parameter) performing the folowing correction to the time-dependent parameters \eqn{\dot{\theta}}{\theta}:
+\deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{\theta(T) = \theta(T_1) exp(T_A/ T_1 - T_A/ T)}
+For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)} with (3 parameters):
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L))}
+or (5 parameters)
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L) + exp(T_AH/ T_H - T_AH/ T)}
 }
 \examples{
 tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
