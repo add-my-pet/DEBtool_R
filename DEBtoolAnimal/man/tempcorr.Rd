@@ -4,14 +4,22 @@
 \alias{tempcorr}
 \title{Temperature correction}
 \usage{
-tempcorr(Temp, T_1, Tpars)
+tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA)
 }
 \arguments{
 \item{Temp}{vector with new temperatures}
 
 \item{T_1}{scalar with reference temperature}
 
-\item{Tpars}{1-, 3- or 5-vector with temperature parameters}
+\item{T_A}{scalar with Arrhenius temperature}
+
+\item{T_L}{(optional) scalar with lower boundary of temperature range}
+
+\item{T_AL}{(optional) scalar with Arrhenius temperature for lower boundary of temperature range}
+
+\item{T_H}{(optional) scalar with upper boundary of temperature range}
+
+\item{T_AH}{(optional) scalar with Arrhenius temperature for upper boundary of temperature range}
 }
 \value{
 vector with temperature correction factors that affect all rates
@@ -28,6 +36,6 @@ or (5 parameters)
 \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L) + exp(T_AH/ T_H - T_AH/ T)}
 }
 \examples{
-tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
+tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 331, T_AL = 20000, T_AH = 190000)
 }
 

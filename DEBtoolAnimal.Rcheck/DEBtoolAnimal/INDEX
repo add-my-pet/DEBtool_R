@@ -12,4 +12,4 @@ get_ubarE0              Computes initial scaled reserve density at
 get_ue0                 Computes initial scaled reserve
 initial_scaled_reserve
                         Gets initial scaled reserve
-tempcorr                Conversion of Kelvin to Celsius
+tempcorr                Temperature correction

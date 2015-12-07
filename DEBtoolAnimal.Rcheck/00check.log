@@ -78,6 +78,6 @@ Execution halted
 LaTeX errors when creating PDF version.
 This typically indicates Rd problems.
 LaTeX errors found:
-* checking PDF version of manual without hyperrefs or index ... OK
+* checking PDF version of manual without hyperrefs or index ... ERROR
 * DONE
-Status: 1 ERROR, 2 WARNINGs, 1 NOTE
+Status: 2 ERRORs, 2 WARNINGs, 1 NOTE

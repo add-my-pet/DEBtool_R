@@ -79,7 +79,100 @@ Overfull \hbox (123.1803pt too wide) in paragraph at lines 397--397
  []\T1/pcr/m/n/9 initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .
 42, kJ = 1.7, kM = 1.7, v = 3.24))[] 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def") [7]
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def") [8] (Rd2.aux) )
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def")
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 442--442
+ []\T1/pcr/m/n/10 tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH 
+= NA)[] 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \begingroup 
+l.468 ...{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.468 ...{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+! Missing delimiter (. inserted).
+<to be read again> 
+                   +
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \begingroup 
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+
+! LaTeX Error: Command \end{list} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+! Missing $ inserted.
+<inserted text> 
+                $
+l.471 \end{Details}
+                   
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.471 \end{Details}
+                   
+
+Overfull \hbox (17.67392pt too wide) detected at line 471
+\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = 1 + []
+ [] \OML/cmm/m/it/10 or\OT1/cmr/m/n/10 (5\OML/cmm/m/it/10 parameters\OT1/cmr/m/
+n/10 )\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = 
+1 + [] [] + [] []
+
+Overfull \hbox (117.7803pt too wide) in paragraph at lines 479--479
+ []\T1/pcr/m/n/9 tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 
+331, T_AL = 20000, T_AH = 190000)[] 
+[8] (Rd2.aux) )
 (see the transcript file for additional information){D:/Program Files/MiKTeX 2.
 9/fonts/enc/dvips/fontname/8r.enc}<D:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
@@ -92,8 +185,11 @@ s/type1/urw/helvetic/uhvr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><D
 :/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (8 pages, 133370 bytes).
+Output written on Rd2.pdf (8 pages, 137242 bytes).
 Transcript written on Rd2.log.
+Warning: running command '"pdflatex" -interaction=nonstopmode "Rd2.tex"' had status 1
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run 'pdflatex' on 'Rd2.tex'
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9)
 entering extended mode
 (Rd2.tex
@@ -172,7 +268,101 @@ Overfull \hbox (123.1803pt too wide) in paragraph at lines 397--397
  []\T1/pcr/m/n/9 initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .
 42, kJ = 1.7, kM = 1.7, v = 3.24))[] 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def")
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def") [8] [9] (Rd2.aux) )
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def")
+Overfull \hbox (0.78088pt too wide) in paragraph at lines 442--442
+ []\T1/pcr/m/n/10 tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH 
+= NA)[] 
+[8]
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \begingroup 
+l.468 ...{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.468 ...{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+! Missing delimiter (. inserted).
+<to be read again> 
+                   +
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \begingroup 
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.470 ...{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+                                                  
+
+! LaTeX Error: Command \end{list} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.471 \end{Details}
+                   
+! Missing $ inserted.
+<inserted text> 
+                $
+l.471 \end{Details}
+                   
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.471 \end{Details}
+                   
+
+Overfull \hbox (17.67392pt too wide) detected at line 471
+\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = 1 + []
+ [] \OML/cmm/m/it/10 or\OT1/cmr/m/n/10 (5\OML/cmm/m/it/10 parameters\OT1/cmr/m/
+n/10 )\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T\OT1/cmr/m/n/10 ) = 
+1 + [] [] + [] []
+
+Overfull \hbox (117.7803pt too wide) in paragraph at lines 479--479
+ []\T1/pcr/m/n/9 tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 
+331, T_AL = 20000, T_AH = 190000)[] 
+[9] (Rd2.aux) )
 (see the transcript file for additional information){D:/Program Files/MiKTeX 2.
 9/fonts/enc/dvips/fontname/8r.enc}<D:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
@@ -185,8 +375,10 @@ s/type1/urw/helvetic/uhvr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmb8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><D
 :/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (9 pages, 133924 bytes).
+Output written on Rd2.pdf (9 pages, 137813 bytes).
 Transcript written on Rd2.log.
-Saving output to 'DEBtoolAnimal-manual.pdf' ...
-Done
-You may want to clean up by 'rm -rf C:/Users/gmarques/AppData/Local/Temp/Rtmp86QHk9/Rd2pdf1428233bc0f'
+Warning: running command '"pdflatex" -interaction=nonstopmode "Rd2.tex"' had status 1
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  unable to run 'pdflatex' on 'Rd2.tex'
+Error in running tools::texi2pdf()
+You may want to clean up by 'rm -rf C:/Users/gmarques/AppData/Local/Temp/RtmpGgOeqv/Rd2pdf173493578dc'

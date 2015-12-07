@@ -2,16 +2,24 @@
 % Please edit documentation in R/tempcorr.R
 \name{tempcorr}
 \alias{tempcorr}
-\title{Conversion of Kelvin to Celsius}
+\title{Temperature correction}
 \usage{
-tempcorr(Temp, T_1, Tpars)
+tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA)
 }
 \arguments{
 \item{Temp}{vector with new temperatures}
 
 \item{T_1}{scalar with reference temperature}
 
-\item{Tpars}{1-, 3- or 5-vector with temperature parameters}
+\item{T_A}{scalar with Arrhenius temperature}
+
+\item{T_L}{(optional) scalar with lower boundary of temperature range}
+
+\item{T_AL}{(optional) scalar with Arrhenius temperature for lower boundary of temperature range}
+
+\item{T_H}{(optional) scalar with upper boundary of temperature range}
+
+\item{T_AH}{(optional) scalar with Arrhenius temperature for upper boundary of temperature range}
 }
 \value{
 vector with temperature correction factors that affect all rates
@@ -20,10 +28,14 @@ vector with temperature correction factors that affect all rates
 Calculates the factor with which physiological rates should be multiplied to go from a reference temperature to a given temperature
 }
 \details{
-This is a test \eqn{\theta}
-\deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{\theta(T) = \theta(T_1) exp(T_A/T_1 - T_A/T)}
+Temperature impacts metabolic rates. These impact is modeled in its most simplest way (1 parameter) performing the folowing correction to the time-dependent parameters \eqn{\dot{\theta}}{\theta}:
+\deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{\theta(T) = \theta(T_1) exp(T_A/ T_1 - T_A/ T)}
+For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)} with (3 parameters):
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L))}
+or (5 parameters)
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L) + exp(T_AH/ T_H - T_AH/ T)}
 }
 \examples{
-tempcorr(c(330, 331, 332), 320, c(12000, 277, 318, 20000, 190000))
+tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 331, T_AL = 20000, T_AH = 190000)
 }
 
