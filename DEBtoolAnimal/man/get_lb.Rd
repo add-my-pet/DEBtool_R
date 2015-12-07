@@ -11,7 +11,7 @@ get_lb(pars, eb = 1, lb0 = as.numeric(pars[3]^(1/3)))
 
 \item{eb}{optional scalar with scaled reserve density at birth (default eb = 1)}
 
-\item{lbarb0}{optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)}
+\item{lb0}{optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)}
 }
 \value{
 scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)

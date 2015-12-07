@@ -7,9 +7,15 @@
 get_ubarE0(g = NA, k = NA, vbarHb = NA, eb = 1, lbarb = NA)
 }
 \arguments{
-\item{eb:}{optional scalar with scaled reserbe density at birth}
+\item{g}{energy investment ratio}
 
-\item{x1}{scalar with upper boundary for integration}
+\item{k}{maintenance ratio}
+
+\item{vbarHb}{rescaled maturity volume at birth}
+
+\item{eb}{optional scalar with scaled reserbe density at birth}
+
+\item{lbarb}{optional scalar with scaled length at birth}
 }
 \value{
 scalar with particular incomple beta function

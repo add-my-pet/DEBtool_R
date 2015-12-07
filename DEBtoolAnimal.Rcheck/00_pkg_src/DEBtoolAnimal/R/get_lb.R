@@ -4,7 +4,7 @@
 #' @family scaled get functions
 #' @param pars 3-vector with parameters: g, k, v_H^b
 #' @param eb optional scalar with scaled reserve density at birth (default eb = 1)
-#' @param lbarb0 optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
+#' @param lb0 optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
 #' @return scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
 #' @examples
 #' get_lb(c(g = 10, k = 1, vHb = 0.5), 1)

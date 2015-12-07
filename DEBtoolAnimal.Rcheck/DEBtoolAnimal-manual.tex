@@ -188,7 +188,7 @@ get_lb(pars, eb = 1, lb0 = as.numeric(pars[3]^(1/3)))
 
 \item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
 
-\item[\code{lbarb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
+\item[\code{lb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
 \end{ldescription}
 \end{Arguments}
 %
@@ -302,9 +302,15 @@ get_ubarE0(g = NA, k = NA, vbarHb = NA, eb = 1, lbarb = NA)
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{eb:}] optional scalar with scaled reserbe density at birth
+\item[\code{g}] energy investment ratio
 
-\item[\code{x1}] scalar with upper boundary for integration
+\item[\code{k}] maintenance ratio
+
+\item[\code{vbarHb}] rescaled maturity volume at birth
+
+\item[\code{eb}] optional scalar with scaled reserbe density at birth
+
+\item[\code{lbarb}] optional scalar with scaled length at birth
 \end{ldescription}
 \end{Arguments}
 %

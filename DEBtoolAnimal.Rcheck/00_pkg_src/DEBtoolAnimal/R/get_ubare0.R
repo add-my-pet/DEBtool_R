@@ -5,9 +5,12 @@
 #' Specification of length at birth as third input by-passes its computation,
 #' so if you want to specify an initial value for this quantity, you should use get_lb directly.
 #' @family get functions
-#' @param eb: optional scalar with scaled reserbe density at birth
+#' @param g energy investment ratio
+#' @param k maintenance ratio
+#' @param vbarHb rescaled maturity volume at birth
+#' @param eb optional scalar with scaled reserbe density at birth
 #   (default: eb = 1)
-#' @param x1 scalar with upper boundary for integration
+#' @param lbarb optional scalar with scaled length at birth
 #' @return scalar with particular incomple beta function
 #' @examples
 #' get_ubarE0(g = 10, lbarb = 0.01)
