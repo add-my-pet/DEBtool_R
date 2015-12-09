@@ -6,6 +6,9 @@
 #' @param x0 scalar with lower boundary for integration
 #' @param x1 scalar with upper boundary for integration
 #' @return scalar with particular incomple beta function
+#' @details Computes
+#' \deqn{B_{x_1}\left(\frac{4}{3},0\right) - B_{x_0}\left(\frac{4}{3},0\right) = \int_{x_0}^{x_1} t^{4/3-1} (1-t)^{-1} dt}{B_x1(4/3,0) - B_x0(4/3,0) = integral (from x0 to x1) t^(4/3-1) (1-t)^(-1) dt}
+#' To be used in the computation of the age at birth (or related quantities) for an egg.
 #' @examples
 #' beta0(0.1, 0.2)
 #' @export

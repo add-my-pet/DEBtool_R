@@ -13,9 +13,9 @@
 #' @details Temperature impacts metabolic rates. This impact, in its most simplest way (1 parameter), is modeled by multiplying all the time-dependent parameters by a correction factor:
 #' \deqn{\exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{exp(T_A/ T_1 - T_A/ T)}
 #' For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)} with (3 parameters):
-#' \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L))}
+#' \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right)}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L))}
 #' or (5 parameters)
-#' \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L) + exp(T_AH/ T_H - T_AH/ T)}
+#' \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right) + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right)}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L) + exp(T_AH/ T_H - T_AH/ T)}
 #' @examples tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 331, T_AL = 20000, T_AH = 190000)
 #' @export
 tempcorr <- function(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA){

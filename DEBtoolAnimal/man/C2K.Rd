@@ -13,7 +13,7 @@ C2K(C)
 temperature in Kelvin
 }
 \description{
-Computes Kelvin from temperatures defined in Celsius
+Converts temperature in degrees Celsius to Kelvin
 }
 \examples{
 C2K(20)

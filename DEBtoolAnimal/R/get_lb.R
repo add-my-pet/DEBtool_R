@@ -6,6 +6,18 @@
 #' @param eb optional scalar with scaled reserve density at birth (default eb = 1)
 #' @param lb0 optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
 #' @return scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
+#' @details The theory behind get_lb, get_tb and get_ue0 is discussed in http://www.bio.vu.nl/thb/research/bib/Kooy2009b.html.
+#' Solves \eqn{y(x_b) = y_b}  for \eqn{l_b}{lb} with explicit solution for \eqn{y(x)}
+#'   \deqn{y(x) = \frac{x e_H}{1-kap} = x g \frac{u_H}{l^3}}{y(x) = x e_H/(1-kap) = x g u_H/ l^3}
+#'  and \eqn{y_b = x_b g u_H^b/ ((1-kap)l_b^3)}
+#'   \deqn{\frac{d}{dx} y = r(x) - y s(x)}{d/dx y = r(x) - y s(x)}
+#'  with solution \eqn{y(x) = v(x) \int_0^x r(x')/ v(x') dx'}
+#'  and \eqn{v(x) = exp(- \int_0^x s(x') dx')}.
+#'  A Newton Raphson scheme is used with Euler integration, starting from an optional initial value.
+#'  Shooting method: get_lb2.
+#'  In case of no convergence, get_lb2 is run automatically as backup.
+#'  Consider the application of get_lb_foetus for an alternative initial value.
+
 #' @examples
 #' get_lb(c(g = 10, k = 1, vHb = 0.5), 1)
 #' @export

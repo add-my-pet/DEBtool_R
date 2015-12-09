@@ -46,6 +46,12 @@ beta0(x0, x1)
 \end{ldescription}
 \end{Arguments}
 %
+\begin{Details}\relax
+Computes
+\deqn{B_{x_1}\left(\frac{4}{3},0\right) - B_{x_0}\left(\frac{4}{3},0\right) = \int_{x_0}^{x_1} t^{4/3-1} (1-t)^{-1} dt}{}
+To be used in the computation of the age at birth (or related quantities) for an egg.
+\end{Details}
+%
 \begin{Value}
 scalar with particular incomple beta function
 \end{Value}
@@ -64,7 +70,7 @@ beta0(0.1, 0.2)
 \HeaderA{C2K}{Conversion of Celsius to Kelvin}{C2K}
 %
 \begin{Description}\relax
-Computes Kelvin from temperatures defined in Celsius
+Converts temperature in degrees Celsius to Kelvin
 \end{Description}
 %
 \begin{Usage}
@@ -191,6 +197,20 @@ get_lb(pars, eb = 1, lb0 = as.numeric(pars[3]^(1/3)))
 \item[\code{lb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
 \end{ldescription}
 \end{Arguments}
+%
+\begin{Details}\relax
+The theory behind get\_lb, get\_tb and get\_ue0 is discussed in http://www.bio.vu.nl/thb/research/bib/Kooy2009b.html.
+Solves \eqn{y(x_b) = y_b}{}  for \eqn{l_b}{} with explicit solution for \eqn{y(x)}{}
+\deqn{y(x) = \frac{x e_H}{1-kap} = x g \frac{u_H}{l^3}}{}
+and \eqn{y_b = x_b g u_H^b/ ((1-kap)l_b^3)}{}
+\deqn{\frac{d}{dx} y = r(x) - y s(x)}{}
+with solution \eqn{y(x) = v(x) \int_0^x r(x')/ v(x') dx'}{}
+and \eqn{v(x) = exp(- \int_0^x s(x') dx')}{}.
+A Newton Raphson scheme is used with Euler integration, starting from an optional initial value.
+Shooting method: get\_lb2.
+In case of no convergence, get\_lb2 is run automatically as backup.
+Consider the application of get\_lb\_foetus for an alternative initial value.
+\end{Details}
 %
 \begin{Value}
 scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
@@ -409,7 +429,7 @@ initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .42, kJ = 1.7, kM =
 \HeaderA{K2C}{Conversion of Kelvin to Celsius}{K2C}
 %
 \begin{Description}\relax
-Computes Celsius from temperatures given in Kelvin
+Converts temperature in Kelvin to degrees Celsius
 \end{Description}
 %
 \begin{Usage}
@@ -473,9 +493,9 @@ tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA)
 Temperature impacts metabolic rates. This impact, in its most simplest way (1 parameter), is modeled by multiplying all the time-dependent parameters by a correction factor:
 \deqn{\exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{}
 For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)}{} with (3 parameters):
-\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right)}{}
 or (5 parameters)
-\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right}{}
+\deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right) + \exp\left(\frac{T_{AH}}{T_H} - \frac{T_{AH}}{T}\right)}{}
 \end{Details}
 %
 \begin{Value}

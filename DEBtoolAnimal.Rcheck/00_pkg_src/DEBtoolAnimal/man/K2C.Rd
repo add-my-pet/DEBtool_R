@@ -13,7 +13,7 @@ K2C(K)
 temperature in Kelvin
 }
 \description{
-Computes Celsius from temperatures given in Kelvin
+Converts temperature in Kelvin to degrees Celsius
 }
 \examples{
 K2C(293.15)
