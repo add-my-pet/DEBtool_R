@@ -14,12 +14,12 @@
 \begin{description}
 \raggedright{}
 \item[Type]\AsIs{Package}
-\item[Title]\AsIs{DEB functions fot an animal}
+\item[Title]\AsIs{DEB functions for an animal}
 \item[Version]\AsIs{0.1}
 \item[Date]\AsIs{2015-09-30}
 \item[Author]\AsIs{Goncalo M. Marques }\email{goncalo.marques@tecnico.ulisboa.pt}\AsIs{}
 \item[Maintainer]\AsIs{Goncalo M. Marques }\email{goncalo.marques@tecnico.ulisboa.pt}\AsIs{}
-\item[Description]\AsIs{DEB based functions for the std and abj models for animals.}
+\item[Description]\AsIs{DEB based functions for the  std (standard) and abj (with acceleration) models for animals.}
 \item[License]\AsIs{GPL}
 \item[LazyData]\AsIs{TRUE}
 \item[NeedsCompilation]\AsIs{no}
@@ -453,25 +453,25 @@ tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA)
 %
 \begin{Arguments}
 \begin{ldescription}
-\item[\code{Temp}] vector with new temperatures
+\item[\code{Temp}] vector with temperatures (in Kelvin)
 
-\item[\code{T\_1}] scalar with reference temperature
+\item[\code{T\_1}] scalar with reference temperature (in Kelvin)
 
-\item[\code{T\_A}] scalar with Arrhenius temperature
+\item[\code{T\_A}] scalar with Arrhenius temperature (in Kelvin)
 
-\item[\code{T\_L}] (optional) scalar with lower boundary of temperature range
+\item[\code{T\_L}] optional scalar with lower boundary of temperature range (in Kelvin)
 
-\item[\code{T\_AL}] (optional) scalar with Arrhenius temperature for lower boundary of temperature range
+\item[\code{T\_AL}] optional scalar with Arrhenius temperature for lower boundary of temperature range (in Kelvin)
 
-\item[\code{T\_H}] (optional) scalar with upper boundary of temperature range
+\item[\code{T\_H}] optional scalar with upper boundary of temperature range (in Kelvin)
 
-\item[\code{T\_AH}] (optional) scalar with Arrhenius temperature for upper boundary of temperature range
+\item[\code{T\_AH}] optional scalar with Arrhenius temperature for upper boundary of temperature range (in Kelvin)
 \end{ldescription}
 \end{Arguments}
 %
 \begin{Details}\relax
-Temperature impacts metabolic rates. These impact is modeled in its most simplest way (1 parameter) performing the folowing correction to the time-dependent parameters \eqn{\dot{\theta}}{}:
-\deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{}
+Temperature impacts metabolic rates. This impact, in its most simplest way (1 parameter), is modeled by multiplying all the time-dependent parameters by a correction factor:
+\deqn{\exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{}
 For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)}{} with (3 parameters):
 \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{}
 or (5 parameters)

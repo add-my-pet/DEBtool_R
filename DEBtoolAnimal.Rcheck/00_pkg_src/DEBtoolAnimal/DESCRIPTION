@@ -1,12 +1,12 @@
 Package: DEBtoolAnimal
 Type: Package
-Title: DEB functions fot an animal
+Title: DEB functions for an animal
 Version: 0.1
 Date: 2015-09-30
 Author: Goncalo M. Marques <goncalo.marques@tecnico.ulisboa.pt>
 Maintainer: Goncalo M. Marques <goncalo.marques@tecnico.ulisboa.pt>
-Description: DEB based functions for the std and abj models for animals.
+Description: DEB based functions for the  std (standard) and abj (with acceleration) models for animals.
 License: GPL
 LazyData: TRUE
 NeedsCompilation: no
-Packaged: 2015-12-07 14:18:05 UTC; gmarques
+Packaged: 2015-12-09 07:59:32 UTC; gmarques

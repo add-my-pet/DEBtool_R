@@ -7,19 +7,19 @@
 tempcorr(Temp, T_1, T_A, T_L = NA, T_AL = NA, T_H = NA, T_AH = NA)
 }
 \arguments{
-\item{Temp}{vector with new temperatures}
+\item{Temp}{vector with temperatures (in Kelvin)}
 
-\item{T_1}{scalar with reference temperature}
+\item{T_1}{scalar with reference temperature (in Kelvin)}
 
-\item{T_A}{scalar with Arrhenius temperature}
+\item{T_A}{scalar with Arrhenius temperature (in Kelvin)}
 
-\item{T_L}{(optional) scalar with lower boundary of temperature range}
+\item{T_L}{optional scalar with lower boundary of temperature range (in Kelvin)}
 
-\item{T_AL}{(optional) scalar with Arrhenius temperature for lower boundary of temperature range}
+\item{T_AL}{optional scalar with Arrhenius temperature for lower boundary of temperature range (in Kelvin)}
 
-\item{T_H}{(optional) scalar with upper boundary of temperature range}
+\item{T_H}{optional scalar with upper boundary of temperature range (in Kelvin)}
 
-\item{T_AH}{(optional) scalar with Arrhenius temperature for upper boundary of temperature range}
+\item{T_AH}{optional scalar with Arrhenius temperature for upper boundary of temperature range (in Kelvin)}
 }
 \value{
 vector with temperature correction factors that affect all rates
@@ -28,8 +28,8 @@ vector with temperature correction factors that affect all rates
 Calculates the factor with which physiological rates should be multiplied to go from a reference temperature to a given temperature
 }
 \details{
-Temperature impacts metabolic rates. These impact is modeled in its most simplest way (1 parameter) performing the folowing correction to the time-dependent parameters \eqn{\dot{\theta}}{\theta}:
-\deqn{\dot{\theta}(T) = \dot{\theta}(T_1) \exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{\theta(T) = \theta(T_1) exp(T_A/ T_1 - T_A/ T)}
+Temperature impacts metabolic rates. This impact, in its most simplest way (1 parameter), is modeled by multiplying all the time-dependent parameters by a correction factor:
+\deqn{\exp\left(\frac{T_A}{T_1} - \frac{T_A}{T}\right)}{exp(T_A/ T_1 - T_A/ T)}
 For a more detailed modeling one can multiply with an extra fraction \eqn{s(T_1)/s(T)} with (3 parameters):
 \deqn{s(T) = 1 + \exp\left(\frac{T_{AL}}{T} - \frac{T_{AL}}{T_L}\right}{s(T) = 1 + exp(T_AL/ T - T_AL/ T_L))}
 or (5 parameters)
