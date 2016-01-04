@@ -26,6 +26,45 @@
 \end{description}
 \Rdcontents{\R{} topics documented:}
 \inputencoding{utf8}
+\HeaderA{addpseudodata}{Adds pseudodata information into inputed data structures}{addpseudodata}
+%
+\begin{Description}\relax
+Adds the pseudodata information and weights for purposes of the regression
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+addpseudodata(data = list(), units = list(), label = list(),
+  weights = list())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] structure with data
+
+\item[\code{units}] structure with data units
+
+\item[\code{label}] structure with data labels
+
+\item[\code{weights}] structure with weights
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+structures with data, units, labael and weights
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+list[data, units, label, weight] <- addpseudodata();
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
 \HeaderA{beta0}{Particular incomplete beta function}{beta0}
 %
 \begin{Description}\relax
@@ -136,6 +175,60 @@ Other scaled get functions: \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}};
 \begin{Examples}
 \begin{ExampleCode}
 dget_lbarb2(10^(-6), 0, c(lbarb = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{estim\_options}{Sets options for estim\_pars}{estim.Rul.options}
+%
+\begin{Description}\relax
+Sets options for estimation one by one
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+estim_options(key = "inexistent", val = "")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{key}] string with option to set
+
+\item[\code{val}] value of the option
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+no input: print values to screen
+
+one input:
+
+* "default": sets options at default values
+* any other key (see below): print value to screen
+
+two inputs:
+
+* "filter": 1 - use filter (default); 0 - do not;
+* "pars\_init\_method":
+0 - get initial estimates from automatized computation (default)
+1 - read initial estimates from .mat file (for continuation)
+2 - read initial estimates from pars\_init file
+* "pseudodata\_pets":
+0 - put pseudodata together with data (default)
+1 - put it apart (only for multispecies estimation)
+* "results\_output":
+0 - prints results to screen (default)
+1 - prints results to screen, saves to .mat file
+2 - saves data to .mat file and graphs to .png files
+(prints results to screen using a customized results file when it exists)
+* "method": "nm" - use Nelder-Mead method; "no" - do not estimate;
+
+for other options see corresponding options file of the method (e.g. nmregr\_options)
+\end{Details}
+%
+\begin{Examples}
+\begin{ExampleCode}
+estim_options("default")
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -456,6 +549,70 @@ Other miscellaneous functions: \code{\LinkA{C2K}{C2K}};
 \begin{Examples}
 \begin{ExampleCode}
 K2C(293.15)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{mydata\_my\_pet}{Sets referenced data}{mydata.Rul.my.Rul.pet}
+%
+\begin{Description}\relax
+Sets data, pseudodata, metadata, auxdata, explanatory text, weights coefficients. Meant to be a template in add-my-pet
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+mydata_my_pet()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Value}
+list with data, auxData, metaData, txtData and weights
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+mydata_my_pet()
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{setweights}{Sets automatically the weights for the data (to be used in a regression)}{setweights}
+%
+\begin{Description}\relax
+computes weights for given data and adds it to the weight structure
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+setweights(data, weights = list())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] structure with data
+
+\item[\code{weights}] structure with weights
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+computes weights for given data and adds it to the weight structure
+for the zero-variate data y the weight will be
+\deqn{min(100, 1/ max(10^-6, y) ^2 \right)}{}
+for the uni-variate data y the weight will be
+\deqn{1/ N \bar{y}^2}{}
+\end{Details}
+%
+\begin{Value}
+structure with weights
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addpseudodata}{addpseudodata}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+setweights(data)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}

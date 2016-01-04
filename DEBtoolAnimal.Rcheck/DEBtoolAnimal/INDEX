@@ -1,7 +1,10 @@
 C2K                     Conversion of Celsius to Kelvin
 K2C                     Conversion of Kelvin to Celsius
+addpseudodata           Adds pseudodata information into inputed data
+                        structures
 beta0                   Particular incomplete beta function
 dget_lbarb2             Computes derivative d delta/dx
+estim_options           Sets options for estim_pars
 fnget_lbarb2            Computes f using the ode solver for delta(x),
                         for finding lbarb
 get_lb                  Computes scaled length at birth
@@ -12,4 +15,7 @@ get_ubarE0              Computes initial scaled reserve density at
 get_ue0                 Computes initial scaled reserve
 initial_scaled_reserve
                         Gets initial scaled reserve
+mydata_my_pet           Sets referenced data
+setweights              Sets automatically the weights for the data (to
+                        be used in a regression)
 tempcorr                Temperature correction

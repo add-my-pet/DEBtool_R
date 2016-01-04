@@ -1,6 +1,6 @@
-* using log directory 'D:/Dados/Work/Development/DEBtool_R/DEBtoolAnimal.Rcheck'
+* using log directory 'C:/Dados/Development/DEBtool_R/DEBtoolAnimal.Rcheck'
 * using R version 3.2.2 (2015-08-14)
-* using platform: x86_64-w64-mingw32 (64-bit)
+* using platform: i386-w64-mingw32 (32-bit)
 * using session charset: ISO8859-1
 * using option '--as-cran'
 * checking for file 'DEBtoolAnimal/DESCRIPTION' ... OK
@@ -30,11 +30,32 @@ Non-standard files/directories found at top level:
 * checking whether the package can be unloaded cleanly ... OK
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
 * checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... OK
+* checking R code for possible problems ... NOTE
+estim_options: no visible global function definition for
+  'nmregr_options'
+estim_options: no visible binding for global variable
+  'pars_init_method'
+estim_options: no visible binding for global variable 'pseudodata_pets'
+estim_options: no visible binding for global variable 'results_output'
+estim_options: no visible binding for global variable 'method'
+
+Found the following assignments to the global environment:
+File 'DEBtoolAnimal/R/estim_options.R':
+  assign("filter", 1, envir = .GlobalEnv)
+  assign("pars_init_method", 0, envir = .GlobalEnv)
+  assign("pseudodata_pets", 0, envir = .GlobalEnv)
+  assign("results_output", 0, envir = .GlobalEnv)
+  assign("method", "nm", envir = .GlobalEnv)
+  assign("filter", val, envir = .GlobalEnv)
+  assign("pars_init_method", val, envir = .GlobalEnv)
+  assign("pseudodata_pets", val, envir = .GlobalEnv)
+  assign("results_output", val, envir = .GlobalEnv)
+  assign("method", val, envir = .GlobalEnv)
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -49,20 +70,20 @@ Running examples in 'DEBtoolAnimal-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: fnget_lbarb2
-> ### Title: Computes f using the ode solver for delta(x), for finding lbarb
-> ### Aliases: fnget_lbarb2
+> ### Name: addpseudodata
+> ### Title: Adds pseudodata information into inputed data structures
+> ### Aliases: addpseudodata
 > 
 > ### ** Examples
 > 
-> fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vbarHb = 0.001, k = 1))
-Error in eval(expr, envir, enclos) : could not find function "ode"
-Calls: fnget_lbarb2 -> with -> with.default -> eval -> eval
+> list[data, units, label, weight] <- addpseudodata();
+Error in list[data, units, label, weight] <- addpseudodata() : 
+  object 'label' not found
 Execution halted
 * checking PDF version of manual ... WARNING
 LaTeX errors when creating PDF version.
 This typically indicates Rd problems.
 LaTeX errors found:
-* checking PDF version of manual without hyperrefs or index ... OK
+* checking PDF version of manual without hyperrefs or index ... ERROR
 * DONE
-Status: 1 ERROR, 1 WARNING, 1 NOTE
+Status: 2 ERRORs, 1 WARNING, 2 NOTEs

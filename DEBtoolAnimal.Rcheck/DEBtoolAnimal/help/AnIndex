@@ -1,6 +1,8 @@
+addpseudodata	addpseudodata
 beta0	beta0
 C2K	C2K
 dget_lbarb2	dget_lbarb2
+estim_options	estim_options
 fnget_lbarb2	fnget_lbarb2
 get_lb	get_lb
 get_lbarb	get_lbarb
@@ -9,4 +11,6 @@ get_ubarE0	get_ubarE0
 get_ue0	get_ue0
 initial_scaled_reserve	initial_scaled_reserve
 K2C	K2C
+mydata_my_pet	mydata_my_pet
+setweights	setweights
 tempcorr	tempcorr
