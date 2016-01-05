@@ -132,31 +132,36 @@ estim_options <- function(key = "inexistent", val = ""){
              cat("method = unknown")
          },
          {
-         cat(paste("key ", key, " is unkown", sep = ""))
-         if(is.numeric(filter))
-           cat("filter = ", filter, "\n", sep = "")
-         else
-           cat("filter = unknown \n")
-         if(exists("pars_init_method"))
-           cat("pars_init_method = ", pars_init_method, "\n", sep = "")
-         else
-           cat("pars_init_method = unknown \n")
-         if(exists("pseudodata_pets"))
-           cat("pseudodata_pets = ", pseudodata_pets, "\n", sep = "")
-         else
-           cat("pseudodata_pets = unknown \n")
-         if(exists("results_output"))
-           cat("results_output = ", results_output, "\n", sep = "")
-         else
-           cat("results_output = unknown \n")
-         if(exists("method")) {
-           cat("method = ", method, sep = "")
-           if(method != "no")
-             eval(parse(text = paste(method, "regr_options", sep = "")))
-         }
-         else
-           cat("method = unknown")
-         }
+           if(exists("method")) {
+             if(method != "no")
+               if(is.numeric(val))
+                 eval(parse(text = paste("info <- ", method, "regr_options(key = '", key, "', val = ", val, ")", sep = "")))
+               else
+                 eval(parse(text = paste("info <- ", method, "regr_options(key = '", key, "', val = '", val, "')", sep = "")))
+           }
+           else
+             cat("method = unknown \n")
+           if(info == 0) {
+             cat(paste("key ", key, " is unkown \n", sep = ""))
+             cat("method = ", method, "\n", sep = "")
+             if(is.numeric(filter))
+               cat("filter = ", filter, "\n", sep = "")
+             else
+               cat("filter = unknown \n")
+             if(exists("pars_init_method"))
+               cat("pars_init_method = ", pars_init_method, "\n", sep = "")
+             else
+               cat("pars_init_method = unknown \n")
+             if(exists("pseudodata_pets"))
+               cat("pseudodata_pets = ", pseudodata_pets, "\n", sep = "")
+             else
+               cat("pseudodata_pets = unknown \n")
+             if(exists("results_output"))
+               cat("results_output = ", results_output, "\n", sep = "")
+             else
+               cat("results_output = unknown \n")
+           }
+          }
   )
 
   }

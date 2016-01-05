@@ -16,6 +16,7 @@ get_ue0                 Computes initial scaled reserve
 initial_scaled_reserve
                         Gets initial scaled reserve
 mydata_my_pet           Sets referenced data
+nmregr_options          Sets options for function nmregr
 setweights              Sets automatically the weights for the data (to
                         be used in a regression)
 tempcorr                Temperature correction

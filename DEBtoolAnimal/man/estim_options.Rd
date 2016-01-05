@@ -44,4 +44,7 @@ two inputs:
 \examples{
 estim_options("default")
 }
+\seealso{
+Other regression functions: \code{\link{nmregr_options}}
+}
 

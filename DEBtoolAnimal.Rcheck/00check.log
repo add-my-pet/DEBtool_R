@@ -36,13 +36,23 @@ Non-standard files/directories found at top level:
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-estim_options: no visible global function definition for
-  'nmregr_options'
 estim_options: no visible binding for global variable
   'pars_init_method'
 estim_options: no visible binding for global variable 'pseudodata_pets'
 estim_options: no visible binding for global variable 'results_output'
 estim_options: no visible binding for global variable 'method'
+nmregr_options: no visible binding for global variable 'report'
+nmregr_options: no visible binding for global variable
+  'max_step_number'
+nmregr_options: no visible binding for global variable 'max_fun_evals'
+nmregr_options: no visible binding for global variable 'tol_simplex'
+nmregr_options: no visible binding for global variable 'tol_fun'
+nmregr_options: no visible binding for global variable 'simplex_size'
+nmregr_options: no visible binding for global variable
+  'pars_init_method'
+nmregr_options: no visible binding for global variable
+  'pseudodata_pets'
+nmregr_options: no visible binding for global variable 'results_output'
 
 Found the following assignments to the global environment:
 File 'DEBtoolAnimal/R/estim_options.R':
@@ -56,6 +66,19 @@ File 'DEBtoolAnimal/R/estim_options.R':
   assign("pseudodata_pets", val, envir = .GlobalEnv)
   assign("results_output", val, envir = .GlobalEnv)
   assign("method", val, envir = .GlobalEnv)
+File 'DEBtoolAnimal/R/nmregr_options.R':
+  assign("report", 1, envir = .GlobalEnv)
+  assign("max_step_number", 500, envir = .GlobalEnv)
+  assign("max_fun_evals", 2000, envir = .GlobalEnv)
+  assign("tol_simplex", 1e-04, envir = .GlobalEnv)
+  assign("tol_fun", 1e-04, envir = .GlobalEnv)
+  assign("simplex_size", 0.05, envir = .GlobalEnv)
+  assign("report", val, envir = .GlobalEnv)
+  assign("max_step_number", val, envir = .GlobalEnv)
+  assign("max_fun_evals", val, envir = .GlobalEnv)
+  assign("tol_simplex", val, envir = .GlobalEnv)
+  assign("tol_fun", val, envir = .GlobalEnv)
+  assign("simplex_size", val, envir = .GlobalEnv)
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK

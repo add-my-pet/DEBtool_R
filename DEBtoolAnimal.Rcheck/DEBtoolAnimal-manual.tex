@@ -226,6 +226,10 @@ two inputs:
 for other options see corresponding options file of the method (e.g. nmregr\_options)
 \end{Details}
 %
+\begin{SeeAlso}\relax
+Other regression functions: \code{\LinkA{nmregr\_options}{nmregr.Rul.options}}
+\end{SeeAlso}
+%
 \begin{Examples}
 \begin{ExampleCode}
 estim_options("default")
@@ -571,6 +575,58 @@ list with data, auxData, metaData, txtData and weights
 \begin{Examples}
 \begin{ExampleCode}
 mydata_my_pet()
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{nmregr\_options}{Sets options for function nmregr}{nmregr.Rul.options}
+%
+\begin{Description}\relax
+Sets options for estimation one by one
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+nmregr_options(key = "inexistent", val = "")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{key}] string with option to set
+
+\item[\code{val}] value of the option
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+no input: print values to screen
+
+one input:
+
+* "default": sets options at default values
+* any other key (see below): print value to screen
+
+two inputs:
+
+* "report": 1 - to report steps to screen; 0 - not to;
+* "max\_step\_number": maximum number of steps
+* "max\_fun\_evals": maximum number of function evaluations
+* "tol\_simplex": tolerance for how close the simplex points must be together to call them the same
+* "tol\_tun": tolerance for how close the loss-function values must be together to call them the same
+* "simplex\_size": fraction added (subtracted if negative) to the free parameters when building the simplex
+\end{Details}
+%
+\begin{Value}
+1 if input is valid key, 0 if input is unknown key
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other regression functions: \code{\LinkA{estim\_options}{estim.Rul.options}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+nmregr_options("default")
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}

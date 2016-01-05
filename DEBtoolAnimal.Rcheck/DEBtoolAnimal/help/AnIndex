@@ -12,5 +12,6 @@ get_ue0	get_ue0
 initial_scaled_reserve	initial_scaled_reserve
 K2C	K2C
 mydata_my_pet	mydata_my_pet
+nmregr_options	nmregr_options
 setweights	setweights
 tempcorr	tempcorr
