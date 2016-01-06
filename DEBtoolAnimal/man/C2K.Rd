@@ -2,7 +2,7 @@
 % Please edit documentation in R/C2K.R
 \name{C2K}
 \alias{C2K}
-\title{Conversion of Celsius to Kelvin}
+\title{Conversion of Celsius to Kelvin - Test Laure}
 \usage{
 C2K(C)
 }
