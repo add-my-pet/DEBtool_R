@@ -12,3 +12,4 @@
 vignettes/*.html
 vignettes/*.pdf
 *.Rhistory
+.Rproj.user
