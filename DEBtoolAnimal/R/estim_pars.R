@@ -1,6 +1,6 @@
 #' Estimates parameters
 #'
-#' @description Runs the entire estimation procedures: gets the parameters, gets the data, intiates the estimation procedure and sends the results for handling
+#' @description Runs the entire estimation procedures: gets the parameters, gets the data, initiates the estimation procedure and sends the results for handling
 #' @family add-my-pet functions
 #' @examples estim_pars()
 #' @export
