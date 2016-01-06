@@ -28,6 +28,7 @@ for the uni-variate data y the weight will be
 setweights(data)
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{addpseudodata}}
+Other add-my-pet auxiliary functions: \code{\link{addpseudodata}};
+  \code{\link{fieldnm_wtxt}}; \code{\link{rmpseudodata}}
 }
 

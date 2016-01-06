@@ -236,6 +236,28 @@ estim_options("default")
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
+\HeaderA{estim\_pars}{Estimates parameters}{estim.Rul.pars}
+%
+\begin{Description}\relax
+Runs the entire estimation procedures: gets the parameters, gets the data, intiates the estimation procedure and sends the results for handling
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+estim_pars()
+\end{verbatim}
+\end{Usage}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{mydata\_pets}{mydata.Rul.pets}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+estim_pars()
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
 \HeaderA{fnget\_lbarb2}{Computes f using the ode solver for delta(x), for finding lbarb}{fnget.Rul.lbarb2}
 %
 \begin{Description}\relax
@@ -575,6 +597,32 @@ list with data, auxData, metaData, txtData and weights
 \begin{Examples}
 \begin{ExampleCode}
 mydata_my_pet()
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{mydata\_pets}{Concatenates mydata files for several species}{mydata.Rul.pets}
+%
+\begin{Description}\relax
+Concatenates mydata files for several species
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+mydata_pets()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Value}
+structure with data, auxData, metaData, txtData and weights for several pets
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+mydata_pets()
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}

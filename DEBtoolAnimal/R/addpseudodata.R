@@ -6,7 +6,7 @@
 #' @param units structure with data units
 #' @param label structure with data labels
 #' @param weights structure with weights
-#' @return structures with data, units, labael and weights
+#' @return structures with data, units, label and weights
 #' @examples list[data, units, label, weight] <- addpseudodata();
 #' @export
 addpseudodata <- function(data = list(), units = list(), label = list(), weights = list()){

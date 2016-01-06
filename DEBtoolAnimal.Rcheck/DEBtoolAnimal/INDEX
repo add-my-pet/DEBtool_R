@@ -5,6 +5,7 @@ addpseudodata           Adds pseudodata information into inputed data
 beta0                   Particular incomplete beta function
 dget_lbarb2             Computes derivative d delta/dx
 estim_options           Sets options for estim_pars
+estim_pars              Estimates parameters
 fnget_lbarb2            Computes f using the ode solver for delta(x),
                         for finding lbarb
 get_lb                  Computes scaled length at birth
@@ -16,6 +17,7 @@ get_ue0                 Computes initial scaled reserve
 initial_scaled_reserve
                         Gets initial scaled reserve
 mydata_my_pet           Sets referenced data
+mydata_pets             Concatenates mydata files for several species
 nmregr_options          Sets options for function nmregr
 setweights              Sets automatically the weights for the data (to
                         be used in a regression)
