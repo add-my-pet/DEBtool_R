@@ -12,21 +12,21 @@ mydata_pets <- function(){
     list[data[[currentPet]], auxData[[currentPet]], metaData[[currentPet]], txtData[[currentPet]], weights[[currentPet]]] <- eval(parse(text = paste("mydata_", currentPet, "()", sep = "")))
   }
 
+  if(pseudodata_pets == 1) {
+    ## remove pseudodata from species struture
+    data <- rmpseudodata(data);
+    txtData <- rmpseudodata(txtData);
+    weights <- rmpseudodata(weights);
 
+    ## set pseudodata and respective weights
+    list[dataTemp, unitsTemp, labelTemp, weightTemp] = addpseudodata();
+    data$psd <- dataTemp$psd;
+    weights$psd <- weightTemp$psd;
+    txtData$psd$units <- unitsTemp$psd;
+    txtData$psd$label <- labelTemp$psd;
+  }
 
   return(list(data = data, auxData = auxData, metaData = metaData, txtData = txtData, weights = weights))
 }
 
-# if(pseudodata_pets == 1) {
-#   ## remove pseudodata from species struture
-#   data <- rmpseudodata(data);
-#   txtData <- rmpseudodata(txtData);
-#   weights <- rmpseudodata(weights);
-#
-#   ## set pseudodata and respective weights
-#   list[dataTemp, unitsTemp, labelTemp, weightTemp] = addpseudodata();
-#   data$psd <- dataTemp$psd;
-#   weights$psd <- weightTemp$psd;
-#   txtData$psd$units <- unitsTemp$psd;
-#   txtData$psd$label <- labelTemp$psd;
-# }
+

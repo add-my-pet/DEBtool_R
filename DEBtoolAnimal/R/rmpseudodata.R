@@ -12,9 +12,8 @@ rmpseudodata <- function(data = list()){
 
   if(length(nmpsd) > 0) {
     for(currentPsd in nmpsd)
-      eval(parse(text = paste(currentPsd, " <- NULL", sep = "")))
+      eval(parse(text = paste("data$", currentPsd, " <- NULL", sep = "")))
   }
 
   return(data)
-
 }
