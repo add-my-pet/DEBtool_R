@@ -50,7 +50,14 @@ estim_pars <- function(){
     pass <- TRUE
     for(i in petsNumber){
       list[passSpec, flag] <- do.call(pars.initnm, eval(parse(text = paste("metaData$", pets[1], sep = ""))))
+      if(!passSec) {
+        cat("The seed parameter set is not realistic. \n")
+        print_filterflag(flag)
+      }
+      pass <- pass * passSpec
     }
+    if(!pass)
+      stop("The seed parameter set is not realistic.")
   }
 
 
@@ -58,20 +65,4 @@ estim_pars <- function(){
 
 }
 
-# % check parameter set if you are using a filter
-# if filter
-# filternm = ['filter_', metaPar.model];
-# pass = 1;
-# for i = 1:petsnumber
-# [passSpec, flag]  = feval(filternm, feval(cov_rulesnm, par,i));
-# if ~passSpec
-# fprintf('The seed parameter set is not realistic. \n');
-# print_filterflag(flag);
-# end
-# pass = pass * passSpec;
-# end
-# if ~pass
-# error(['    The seed parameter set is not realistic.']);
-# end
-# end
 
