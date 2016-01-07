@@ -15,4 +15,7 @@ Sets data, pseudodata, metadata, auxdata, explanatory text, weights coefficients
 \examples{
 mydata_my_pet()
 }
+\seealso{
+Other add-my-pet template functions: \code{\link{pars_init_my_pet}}
+}
 

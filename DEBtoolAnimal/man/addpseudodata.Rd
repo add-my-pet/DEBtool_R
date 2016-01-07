@@ -26,7 +26,9 @@ Adds the pseudodata information and weights for purposes of the regression
 list[data, units, label, weight] <- addpseudodata();
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{fieldnm_wtxt}};
+Other add-my-pet auxiliary functions: \code{\link{addchem}};
+  \code{\link{fieldnm_wtxt}}; \code{\link{filter_std}};
+  \code{\link{get_d_V}}; \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

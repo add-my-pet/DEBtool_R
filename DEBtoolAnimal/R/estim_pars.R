@@ -29,13 +29,13 @@ estim_pars <- function(){
          "1" = {
            temp <- readMat(resultsnm)
            par <- temp$par; rm(temp)
-           list[par2, metaPar, txtPar] <- do.call(pars.initnm, eval(parse(text = paste("metaData$", pets[1], sep = ""))))
+           list[par2, metaPar, txtPar] <- eval(strVec2Exp(c(pars.initnm, "(metaData$", pets[1], ")")))
            if(length(names(par$free)) != length(names(par2$free)))
              stop("The number of parameters in pars.free in the pars_init and in the .mat file are not the same.")
            par$free <- par2$free
          },
          "2" = {
-           list[par, metaPar, txtPar] <- do.call(pars.initnm, eval(parse(text = paste("metaData$", pets[1], sep = ""))))
+           list[par, metaPar, txtPar] <- eval(strVec2Exp(c(pars.initnm, "(metaData$", pets[1], ")")))
          }
   )
 
@@ -46,11 +46,11 @@ estim_pars <- function(){
 
   # check parameter set if you are using a filter
   if(filter) {
-    filternm <- paste("filter_", metaPar.model, sep = "")
+    filternm <- paste("filter_", metaPar$model, sep = "")
     pass <- TRUE
     for(i in petsNumber){
-      list[passSpec, flag] <- do.call(pars.initnm, eval(parse(text = paste("metaData$", pets[1], sep = ""))))
-      if(!passSec) {
+      list[passSpec, flag] <- do.call(filternm, list(do.call(cov.rulesnm, list(par, i))))
+      if(!passSpec) {
         cat("The seed parameter set is not realistic. \n")
         print_filterflag(flag)
       }
@@ -64,5 +64,8 @@ estim_pars <- function(){
   return(data)
 
 }
+
+
+cov_rules_1species <- function(par, i) par
 
 

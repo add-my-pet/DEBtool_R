@@ -19,7 +19,9 @@ Removes pseudodata information from inputed data structures
 data <- rmpseudodata(data)
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{addpseudodata}};
-  \code{\link{fieldnm_wtxt}}; \code{\link{setweights}}
+Other add-my-pet auxiliary functions: \code{\link{addchem}};
+  \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
+  \code{\link{filter_std}}; \code{\link{get_d_V}};
+  \code{\link{print_filterflag}}; \code{\link{setweights}}
 }
 

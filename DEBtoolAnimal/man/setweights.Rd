@@ -19,16 +19,19 @@ computes weights for given data and adds it to the weight structure
 }
 \details{
 computes weights for given data and adds it to the weight structure
-for the zero-variate data y the weight will be
+for the zero-variate data y, the weight will be
 \deqn{min(100, 1/ max(10^-6, y) ^2 \right)}{\min\left(100, \frac{1}{\max\left(10^{-6}, y\right ) ^2}}
-for the uni-variate data y the weight will be
+for the uni-variate data y, the weight will be
 \deqn{1/ N \bar{y}^2}{\frac{1}{N \bar{y}^2}}
 }
 \examples{
 setweights(data)
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{addpseudodata}};
-  \code{\link{fieldnm_wtxt}}; \code{\link{rmpseudodata}}
+Other add-my-pet auxiliary functions: \code{\link{addchem}};
+  \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
+  \code{\link{filter_std}}; \code{\link{get_d_V}};
+  \code{\link{print_filterflag}};
+  \code{\link{rmpseudodata}}
 }
 

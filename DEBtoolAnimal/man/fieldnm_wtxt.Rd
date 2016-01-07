@@ -21,7 +21,9 @@ Creates a list of field names of a data frame with str
 nmpsd <- fieldnm_wtxt(data, "psd")
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{addpseudodata}};
+Other add-my-pet auxiliary functions: \code{\link{addchem}};
+  \code{\link{addpseudodata}}; \code{\link{filter_std}};
+  \code{\link{get_d_V}}; \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

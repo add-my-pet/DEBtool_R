@@ -7,7 +7,7 @@
 estim_pars()
 }
 \description{
-Runs the entire estimation procedures: gets the parameters, gets the data, intiates the estimation procedure and sends the results for handling
+Runs the entire estimation procedures: gets the parameters, gets the data, initiates the estimation procedure and sends the results for handling
 }
 \examples{
 estim_pars()
