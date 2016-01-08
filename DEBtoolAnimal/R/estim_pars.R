@@ -60,6 +60,26 @@ estim_pars <- function(){
       stop("The seed parameter set is not realistic.")
   }
 
+  if(method != "no")
+    if(method == "nm")
+      if(petsNumber == 1)
+        par <- petregr_f("predict_pets", par, data, auxData, weights, filternm)     # WLS estimate parameters using overwrite
+      else
+        par <- groupregr_f("predict_pets", par, data, auxData, weights, filternm, covRulesnm);  # WLS estimate parameters using overwrite
+
+  # Results
+  #results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights);
+  predict_my_pet(par, data$my_pet, auxData$my_pet)
+
+  if(filter) {
+    warningnm <- paste("warning_", metaPar$model, sep = "")
+    if(petsNumber == 1)
+      do.call(warningnm, list(par))
+    else
+      for(i in petsNumber){
+        do.call(warningnm, list(par, i))
+      }
+  }
 
   return(data)
 

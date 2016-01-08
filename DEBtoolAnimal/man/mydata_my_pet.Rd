@@ -16,6 +16,7 @@ Sets data, pseudodata, metadata, auxdata, explanatory text, weights coefficients
 mydata_my_pet()
 }
 \seealso{
-Other add-my-pet template functions: \code{\link{pars_init_my_pet}}
+Other add-my-pet template functions: \code{\link{pars_init_my_pet}};
+  \code{\link{predict_my_pet}}
 }
 

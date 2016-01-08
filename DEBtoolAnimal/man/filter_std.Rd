@@ -29,6 +29,7 @@ The flag is an indicator of reason for not passing the filter and it means
 filter_std(par)
 }
 \seealso{
-Other filter functions: \code{\link{reach_birth}}
+Other filter functions: \code{\link{reach_birth}};
+  \code{\link{warning_std}}
 }
 

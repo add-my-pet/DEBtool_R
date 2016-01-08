@@ -20,7 +20,7 @@ filter_std <- function(par){
 
     filter <- 0; flag <- 0; # default setting of filter and flag
 
-    parvec = c(z, kap.X, kap.P, v, kap, p.M, E.G, k.J, E.Hb, E.Hp, kap.R, h.a, s.G, T.A)
+    parvec <- c(z, kap.X, kap.P, v, kap, p.M, E.G, k.J, E.Hb, E.Hp, kap.R, h.a, s.G, T.A)
     if(any(parvec <= 0) || p.T < 0) {
       flag <- 1
       return(list(filter, flag))
@@ -43,7 +43,7 @@ filter_std <- function(par){
     }
 
     # compute and unpack cpar (compound parameters)
-    c = parscomp(par);
+    c <- parscomp(par);
 
     if(c$kap.G >= 1) {
       flag <- 3

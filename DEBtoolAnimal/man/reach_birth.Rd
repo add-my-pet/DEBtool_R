@@ -25,6 +25,7 @@ Checks if parameters allow for reaching birth in the standard DEB model
 reach_birth(g = 10, k = 1, vHb = 0.5)
 }
 \seealso{
-Other filter functions: \code{\link{filter_std}}
+Other filter functions: \code{\link{filter_std}};
+  \code{\link{warning_std}}
 }
 

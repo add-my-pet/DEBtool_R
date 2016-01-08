@@ -19,6 +19,7 @@ Sets (initial values for) parameters$ Meant to be a template in add-my-pet
 pars_init_my_pet(metaData)
 }
 \seealso{
-Other add-my-pet template functions: \code{\link{mydata_my_pet}}
+Other add-my-pet template functions: \code{\link{mydata_my_pet}};
+  \code{\link{predict_my_pet}}
 }
 
