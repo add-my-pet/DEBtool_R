@@ -27,7 +27,7 @@ get_d_V("Chordata", "Mammalia")
 \seealso{
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
   \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
-  \code{\link{filter_std}}; \code{\link{print_filterflag}};
+  \code{\link{parscomp}}; \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

@@ -9,20 +9,17 @@ print_filterflag(flag)
 \arguments{
 \item{flag}{integer with code from filter}
 }
-\value{
-list with updated par, units, label and free
-}
 \description{
 Prints an explanation to the screen according to the flag produced by a filter.
 Meant to be run in the estimation procedure for the seed parameter set
 }
 \examples{
-pars_init_my_pet(metaData)
+print_filterflag(3)
 }
 \seealso{
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
   \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
-  \code{\link{filter_std}}; \code{\link{get_d_V}};
+  \code{\link{get_d_V}}; \code{\link{parscomp}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

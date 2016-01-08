@@ -34,8 +34,8 @@ pars_init_my_pet(metaData)
 }
 \seealso{
 Other add-my-pet auxiliary functions: \code{\link{addpseudodata}};
-  \code{\link{fieldnm_wtxt}}; \code{\link{filter_std}};
-  \code{\link{get_d_V}}; \code{\link{print_filterflag}};
+  \code{\link{fieldnm_wtxt}}; \code{\link{get_d_V}};
+  \code{\link{parscomp}}; \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

@@ -2,7 +2,7 @@
 #'
 #' @description Checks if parameter values are in the allowable part of the parameter space of
 #' standard DEB model without acceleration. Meant to be run in the estimation procedure
-#' @family add-my-pet auxiliary functions
+#' @family filter functions
 #' @param par data frame with parameter values
 #' @details The flag is an indicator of reason for not passing the filter and it means
 #' 0: parameters pass the filter
@@ -43,14 +43,14 @@ filter_std <- function(par){
     }
 
     # compute and unpack cpar (compound parameters)
-    c = parscomp_st(par);
+    c = parscomp(par);
 
     if(c$kap.G >= 1) {
       flag <- 3
       return(list(filter, flag))
     }
 
-    if(c$k * c$v.Hp >= p.f^3) {
+    if(c$k * c$v.Hp >= f^3) {
       flag <- 5
       return(list(filter, flag))
     }

@@ -28,7 +28,7 @@ get_d_V <- function(phylum, class){
                   "Bivalvia" = 0.09,
                   0.1
            ),
-         "Tardigrada" =, "Priapulida" = 0.07,    # Ecdysozoa
+         "Tardigrada" =, "Priapulida" =, 'Nematoda' = 0.07,    # Ecdysozoa
          "Arthropoda" = 0.17,
          "Echinodermata" = 0.09,                 # deuterostomata
          "Hemichordata" = 0.07,

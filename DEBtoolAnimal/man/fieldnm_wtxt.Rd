@@ -22,8 +22,8 @@ nmpsd <- fieldnm_wtxt(data, "psd")
 }
 \seealso{
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
-  \code{\link{addpseudodata}}; \code{\link{filter_std}};
-  \code{\link{get_d_V}}; \code{\link{print_filterflag}};
+  \code{\link{addpseudodata}}; \code{\link{get_d_V}};
+  \code{\link{parscomp}}; \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

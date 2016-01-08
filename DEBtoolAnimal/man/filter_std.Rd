@@ -29,9 +29,6 @@ The flag is an indicator of reason for not passing the filter and it means
 filter_std(par)
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{addchem}};
-  \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
-  \code{\link{get_d_V}}; \code{\link{print_filterflag}};
-  \code{\link{rmpseudodata}}; \code{\link{setweights}}
+Other filter functions: \code{\link{reach_birth}}
 }
 
