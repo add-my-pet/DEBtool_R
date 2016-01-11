@@ -25,7 +25,10 @@ get_lbarb(c(g = 10, k = 1, vbarHb = 0.0005), 1)
 \seealso{
 Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb2}};
-  \code{\link{get_lb}};
-  \code{\link{initial_scaled_reserve}}
+  \code{\link{get_lb}}; \code{\link{get_lp}};
+  \code{\link{get_tb}}; \code{\link{get_tm_s}};
+  \code{\link{get_tp}};
+  \code{\link{initial_scaled_reserve}};
+  \code{\link{reprod_rate}}
 }
 

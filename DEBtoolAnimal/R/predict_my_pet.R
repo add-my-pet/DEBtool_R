@@ -38,7 +38,7 @@ predict_my_pet <- function(par, data, auxData = list()){
     # zero-variate data
 
     # life cycle
-    pars.tp <- c(g, k, l.T, v.Hb, v.Hp);               # compose parameter vector
+    pars.tp <- c(g = g, k = k, lT = l.T, vHb = v.Hb, vHp = v.Hp);               # compose parameter vector
     list[t.p, t.b, l.p, l.b, info] <- get_tp(pars.tp, f); # -, scaled times & lengths at f
 
     # birth
@@ -60,12 +60,12 @@ predict_my_pet <- function(par, data, auxData = list()){
     Wd.i <- L.i^3 * d.V * (1 + f * w); # g, ultimate dry weight (remove d.V for wet weight)
 
     # reproduction
-    pars.R <- c(kap, kap.R, g, k.J, k.M, L.T, v, U.Hb, U.Hp); # compose parameter vector at T
-    RT.i <- TC.Ri * reprod_rate(L.i, f, pars.R);             # #/d, ultimate reproduction rate at T
+    pars.R <- c(kap = kap, kapR = kap.R, g = g, kJ = k.J, kM = k.M, LT = L.T, v = v, UHb = U.Hb, UHp = U.Hp); # compose parameter vector at T
+    RT.i <- TC.Ri * reprod_rate(L.i, f, pars.R)[[1]];             # #/d, ultimate reproduction rate at T
 
     # life span
-    pars.tm <- c(g, l.T, h.a/ k.M^2, s.G);  # compose parameter vector at T.ref
-    t.m <- get_tm_s(pars.tm, f, l.b);      # -, scaled mean life span at T.ref
+    pars.tm <- c(g = g, lT = l.T, ha = h.a/ k.M^2, sG = s.G);  # compose parameter vector at T.ref
+    t.m <- get_tm_s(pars.tm, f, l.b)[[1]]; # -, scaled mean life span at T.ref
     aT.m <- t.m/ k.M/ TC.am;               # d, mean life span at T
 
     # pack to output
@@ -85,10 +85,10 @@ predict_my_pet <- function(par, data, auxData = list()){
     # uni-variate data
 
     # time-length
-    f <- f.tL; pars.lb <- c(g, k, v.Hb);                        # compose parameters
+    f <- f.tL; pars.lb <- c(g = g, k = k, vHb = v.Hb);          # compose parameters
     ir.B <- 3/ k.M + 3 * f * L.m/ v; r.B <- 1/ ir.B;            # d, 1/von Bert growth rate
     Lw.i <- (f * L.m - L.T)/ del.M;                             # cm, ultimate physical length at f
-    Lw.b <- get_lb(pars.lb, f) * L.m/ del.M;                    # cm, physical length at birth at f
+    Lw.b <- get_lb(pars.lb, f)[[1]] * L.m/ del.M;                    # cm, physical length at birth at f
     ELw <- Lw.i - (Lw.i - Lw.b) * exp( - TC.tL * r.B * tL[,1]); # cm, expected physical length at time
     #
     # length-weight
@@ -99,7 +99,7 @@ predict_my_pet <- function(par, data, auxData = list()){
     prdData$tL <- ELw;
     prdData$LW <- EWw;
 
+    return(list(prdData, info <- 1))
   }))))
 
-  return(list(prdData, info <- 1))
 }

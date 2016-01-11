@@ -69,7 +69,7 @@ estim_pars <- function(){
 
   # Results
   #results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights);
-  predict_my_pet(par, data$my_pet, auxData$my_pet)
+  prdData <- predict_my_pet(par, data$my_pet, auxData$my_pet)[[1]]
 
   if(filter) {
     warningnm <- paste("warning_", metaPar$model, sep = "")
@@ -81,7 +81,7 @@ estim_pars <- function(){
       }
   }
 
-  return(data)
+  return(prdData)
 
 }
 
