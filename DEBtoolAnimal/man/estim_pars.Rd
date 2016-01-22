@@ -13,6 +13,7 @@ Runs the entire estimation procedures: gets the parameters, gets the data, initi
 estim_pars()
 }
 \seealso{
-Other add-my-pet functions: \code{\link{mydata_pets}}
+Other add-my-pet functions: \code{\link{mydata_pets}};
+  \code{\link{petregr_f}}
 }
 

@@ -16,6 +16,7 @@ Concatenates mydata files for several species
 mydata_pets()
 }
 \seealso{
-Other add-my-pet functions: \code{\link{estim_pars}}
+Other add-my-pet functions: \code{\link{estim_pars}};
+  \code{\link{petregr_f}}
 }
 

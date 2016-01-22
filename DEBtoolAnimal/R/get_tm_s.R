@@ -57,7 +57,7 @@ get_tm_s = function(pars, f = 1, lb = NA, lp = NA){
     } else if(hG > 0) {
         tm = 10/ hG; # upper boundary for main integration of S(t)
         tm_tail = expint(exp(tm * hG) * 6/ tG3)/ hG;
-        tm = integrate(function(x) fnget_tm_s(x, tG), 0, tm * hW)$value/ hW + tm_tail;
+        tm = integrate(fnget_tm_s, 0, tm * hW, tG)$value/ hW + tm_tail;
       } else {  # hG < 0
         tm = -1e4/ hG; # upper boundary for main integration of S(t)
         hw = hW * sqrt( - 3/ tG); # scaled hW
@@ -75,11 +75,15 @@ fnget_tm_s = function(t, tG) {
   # t: age * hW
   # S: ageing survival prob
 
-  hGt = tG * t; # age * hG
+  torder <- order(t)
+
+  hGt <- tG * t; # age * hG
   if(tG > 0)
-    S = exp(-(1 + sum(cumprod(hGt * (1/(4:500))))) * t^3)
+    S = exp(-(1 + apply(apply(hGt[torder] %*% t(1/(4:500)),1,cumprod), 2, sum)[order(torder)]) * t^3) # torder to sort, order(torder) to unsort
   else # tG < 0
     S = exp((1 + hGt + hGt^2/ 2  - exp(hGt)) * 6/ tG^3)
+
+  return(S)
 }
 
 expint = function(x) {

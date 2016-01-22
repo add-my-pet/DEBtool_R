@@ -36,7 +36,7 @@ get_tp = function(pars, f = 1, lb0 = as.numeric(pars[4]^(1/3))){
       irB <- 3 * (1 + f/ g); # k_M/ r_B
       list[lp, lb, info] <- get_lp(pars, f, lb0);
       if(length(lb0) != 2) {  # lb0 = l_b
-        tb <- get_tb(pars.lb, f, lb);
+        tb <- get_tb(pars.lb, f, lb)[[1]];
         tp <- tb + irB * log((li - lb)/ (li - lp));
       } else {                # lb0 = l and t for a juvenile
         tb = NA;
