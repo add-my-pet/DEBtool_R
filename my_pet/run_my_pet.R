@@ -1,20 +1,8 @@
 
 rm(list = ls());
 
-require(DEBtoolAnimal)
-require(deSolve)
-
-pets <<- c("my_coconut");
+pets <<- c("my_pet");
 # check_my_pet(pets);  # check pet-files for required fields
-
-petsNumber <- length(pets)
-if(petsNumber == 1) {
-  # set your own working directory. This directory should contain the species folder with the add-my-pet files
-  setwd(paste('~/Documents/Current/DEBSea/R/',pets, sep = ""))
-  source(paste('pars_init_', pets, '.R',sep = ""))
-  source(paste('mydata_', pets, '.R', sep = ""))
-  source(paste('predict_', pets, '.R', sep = ""))
-}
 
 
 # See estim_options for more options
