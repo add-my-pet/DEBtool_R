@@ -37,6 +37,7 @@ Non-standard files/directories found at top level:
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
 addchem: no visible binding for global variable 'd.V'
+estim_options: no visible binding for global variable 'cov_rules'
 estim_options: no visible binding for global variable
   'pars_init_method'
 estim_options: no visible binding for global variable 'pseudodata_pets'
@@ -57,10 +58,13 @@ estim_pars: no visible binding for global variable 'auxData.pet1'
 estim_pars: no visible binding for global variable 'metaData.pet1'
 estim_pars: no visible global function definition for 'readMat'
 estim_pars: no visible binding for global variable 'par2'
+estim_pars: no visible binding for global variable 'cov_rules'
 estim_pars: no visible binding for global variable 'passSpec'
 estim_pars: no visible binding for global variable 'method'
 estim_pars: no visible global function definition for 'groupregr_f'
 estim_pars: no visible binding for global variable 'covRulesnm'
+mre_st: no visible binding for global variable 'prdData'
+mre_st: no visible binding for global variable 'prdInfo'
 mydata_pets: no visible binding for global variable 'pets'
 mydata_pets: no visible binding for global variable 'pseudodata_pets'
 mydata_pets: no visible binding for global variable 'dataTemp'
@@ -79,21 +83,36 @@ nmregr_options: no visible binding for global variable
 nmregr_options: no visible binding for global variable
   'pseudodata_pets'
 nmregr_options: no visible binding for global variable 'results_output'
-petregr_f: no visible global function definition for 'size'
-petregr_f: no visible binding for global variable 'auxvar'
-petregr_f: no visible global function definition for 'struct2vector'
-petregr_f: no visible binding for global variable 'nm'
+petregr_f: no visible binding for global variable 'max_step_number'
+petregr_f: no visible binding for global variable 'max_fun_evals'
+petregr_f: no visible binding for global variable 'tol_simplex'
+petregr_f: no visible binding for global variable 'tol_fun'
+petregr_f: no visible binding for global variable 'simplex_size'
+petregr_f: no visible binding for global variable 'report'
+petregr_f: no visible binding for global variable 'f'
+predict_pets: no visible binding for global variable 'cov_rules'
+predict_pets: no visible binding for global variable 'pets'
+predict_pets: no visible binding for global variable 'pseudodata_pets'
+predict_pets: no visible binding for global variable 'covRulesnm'
 reach_birth: no visible binding for global variable 'l.b'
 results_pets: no visible binding for global variable 'pets'
+results_pets: no visible binding for global variable 'MRE'
+results_pets: no visible binding for global variable 'RE'
+results_pets: no visible binding for global variable 'info'
+results_pets: no visible binding for global variable 'results_output'
+results_pets: no visible binding for global variable 'prdData'
+results_pets: no visible binding for global variable 'cov_rules'
 
 Found the following assignments to the global environment:
 File 'DEBtoolAnimal/R/estim_options.R':
   assign("filter", 1, envir = .GlobalEnv)
+  assign("cov_rules", "1species", envir = .GlobalEnv)
   assign("pars_init_method", 0, envir = .GlobalEnv)
   assign("pseudodata_pets", 0, envir = .GlobalEnv)
   assign("results_output", 0, envir = .GlobalEnv)
   assign("method", "nm", envir = .GlobalEnv)
   assign("filter", val, envir = .GlobalEnv)
+  assign("method", val, envir = .GlobalEnv)
   assign("pars_init_method", val, envir = .GlobalEnv)
   assign("pseudodata_pets", val, envir = .GlobalEnv)
   assign("results_output", val, envir = .GlobalEnv)

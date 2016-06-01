@@ -31,6 +31,8 @@ results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights)
 }
 \seealso{
 Other add-my-pet functions: \code{\link{estim_pars}};
-  \code{\link{mydata_pets}}; \code{\link{petregr_f}}
+  \code{\link{mydata_pets}}; \code{\link{petregr_f}};
+  \code{\link{predict_pets}}; \code{\link{printpar}};
+  \code{\link{printprd}}
 }
 

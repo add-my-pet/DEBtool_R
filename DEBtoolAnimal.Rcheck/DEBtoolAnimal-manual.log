@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.5)  26 MAY 2016 14:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.5)  1 JUN 2016 12:37
 entering extended mode
-**Rd2.tex
-(Rd2.tex
+**C:/Dados/Development/DEBtool_R/DEBtoolAnimal.Rcheck/DEBtoolAnimal-manual.tex
+(C:/Dados/Development/DEBtool_R/DEBtoolAnimal.Rcheck/DEBtoolAnimal-manual.tex
 LaTeX2e <2015/01/01> patch level 2
 Babel <3.9m> and hyphenation patterns for 69 languages loaded.
 
@@ -614,8 +614,8 @@ File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
 \@indexfile=\write3
 
-Writing index file Rd2.idx
-(Rd2.aux)
+Writing index file DEBtoolAnimal-manual.idx
+No file DEBtoolAnimal-manual.aux.
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
@@ -630,7 +630,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 8.
- ("C:\Program Files\MiKTeX\tex\latex\base\ts1cmr.fd"
+("C:\Program Files\MiKTeX\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 8.
@@ -641,3 +641,351 @@ LaTeX Font Info:    Try loading font information for T1+ptm on input line 8.
 ("C:\Program Files\MiKTeX\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
+\AtBeginShipoutBox=\box30
+Package hyperref Info: Link coloring ON on input line 8.
+
+("C:\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count105
+)
+LaTeX Info: Redefining \ref on input line 8.
+LaTeX Info: Redefining \pageref on input line 8.
+LaTeX Info: Redefining \nameref on input line 8.
+\@outlinefile=\write4
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 9.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 11.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 11.
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 20.
+LaTeX Font Info:    No file T1zi4.fd. on input line 20.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/n' undefined
+(Font)              using `T1/cmr/m/n' instead on input line 20.
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 27.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 27.
+("C:\Program Files\MiKTeX\tex\latex\psnfss\t1phv.fd"
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+\tf@toc=\write5
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 29.
+ [1
+
+
+{C:/Users/gmarques/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (7.93755pt too wide) in paragraph at lines 111--117
+[]\T1/ptm/m/n/10 Other add-my-pet aux-il-iary func-tions: [][]\T1/zi4/m/n/10 ad
+dchem[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fieldnm_wtxt[][][]\T1/ptm/m/n/10
+ ; [][]\T1/zi4/m/n/10 fieldnmnst[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_d
+_V[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 parscomp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [2]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [3]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [4]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [5]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (28.69104pt too wide) in paragraph at lines 338--342
+[]\T1/ptm/m/n/10 Other add-my-pet func-tions: [][]\T1/zi4/m/n/10 mydata_pets[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 petregr_f[][][]\T1/ptm/m/n/10 ; [][]\T1/
+zi4/m/n/10 predict_pets[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printpar[][][]
+\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printprd[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 results_pets[][][] 
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [6]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (13.54729pt too wide) in paragraph at lines 412--418
+[]\T1/ptm/m/n/10 Other add-my-pet aux-il-iary func-tions: [][]\T1/zi4/m/n/10 ad
+dchem[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 addpseudodata[][][]\T1/ptm/m/n/1
+0 ; [][]\T1/zi4/m/n/10 fieldnmnst[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_
+d_V[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 parscomp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [7]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [8]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [9]
+Overfull \hbox (66.26689pt too wide) in paragraph at lines 577--579
+[]\T1/ptm/m/n/10 The the-ory be-hind get_lb, get_tb and get_ue0 is dis-cussed i
+n http://www.bio.vu.nl/thb/research/bib/Kooy2009b.html.
+ []
+
+
+Overfull \hbox (5.20775pt too wide) in paragraph at lines 595--602
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lp[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_tb[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [10]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [11]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (5.20775pt too wide) in paragraph at lines 725--732
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_tb[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [12]
+Overfull \hbox (4.09691pt too wide) in paragraph at lines 772--779
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_lp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [13]
+Overfull \hbox (4.09691pt too wide) in paragraph at lines 826--833
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_lp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (4.09691pt too wide) in paragraph at lines 870--877
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_lp[][][]\T1/ptm/m/n/10 ;
+ []
+
+[14] ("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [15]
+Overfull \hbox (3.28772pt too wide) in paragraph at lines 955--956
+[]\T1/ptm/m/n/10 uE0 scalar with scaled re-serve at t=0: $U_E^0 g^2 k_M^3/ v^2$
+ with $U_E^0 = M_E^0/ {J_EAm}$,
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [16]
+Overfull \hbox (4.09691pt too wide) in paragraph at lines 995--1001
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_lp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [17]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [18]
+Overfull \hbox (19.60992pt too wide) in paragraph at lines 1118--1122
+[]\T1/ptm/m/n/10 Other add-my-pet func-tions: [][]\T1/zi4/m/n/10 estim_pars[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 petregr_f[][][]\T1/ptm/m/n/10 ; [][]\T1/z
+i4/m/n/10 predict_pets[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printpar[][][]\
+T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printprd[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m
+/n/10 results_pets[][][] 
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [19]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [20]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Underfull \hbox (badness 1082) in paragraph at lines 1252--1252
+[]\T1/ptm/m/it/10 Calculates least squares es-ti-mates us-ing Nelder Mead's sim
+-plex
+ []
+
+[21] ("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [22]
+Overfull \hbox (21.80383pt too wide) in paragraph at lines 1356--1360
+[]\T1/ptm/m/n/10 Other add-my-pet func-tions: [][]\T1/zi4/m/n/10 estim_pars[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 mydata_pets[][][]\T1/ptm/m/n/10 ; [][]\T1
+/zi4/m/n/10 petregr_f[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printpar[][][]\T
+1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 printprd[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/
+n/10 results_pets[][][] 
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [23]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [24]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [25]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+Overfull \hbox (4.09691pt too wide) in paragraph at lines 1560--1566
+[]\T1/ptm/m/n/10 Other scaled get func-tions: [][]\T1/zi4/m/n/10 dget_lbarb2[][
+][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 fnget_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\
+T1/zi4/m/n/10 get_lbarb2[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lbarb[][]
+[]\T1/ptm/m/n/10 ; [][]\T1/zi4/m/n/10 get_lb[][][]\T1/ptm/m/n/10 ; [][]\T1/zi4/
+m/n/10 get_lp[][][]\T1/ptm/m/n/10 ;
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [26]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [27]
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+)
+! Extra \right.
+<argument> min(100, 1/ max(10^-6, y) ^2 \right )
+                                                
+l.1672 ...{min(100, 1/ max(10^-6, y) ^2 \right)}{}
+                                                  
+I'm ignoring a \right that had no matching \left.
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [28]
+Overfull \hbox (26.36026pt too wide) in paragraph at lines 1741--1741
+ []\T1/zi4/m/n/9 tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 
+331, T_AL = 20000, T_AH = 190000)[] 
+ []
+
+("C:\Program Files\MiKTeX\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+) [29]
+No file DEBtoolAnimal-manual.ind.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1775.
+[30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1775.
+ (DEBtoolAnimal-manual.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1775.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1775.
+
+
+
+Package rerunfilecheck Warning: File `DEBtoolAnimal-manual.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DEBtoolAnimal-manual.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  B594E6E4F3E8E788EC7EFD4F45110143;2655.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1775.
+ ) 
+Here is how much of TeX's memory you used:
+ 6441 strings out of 493673
+ 93638 string characters out of 3145571
+ 168578 words of memory out of 3000000
+ 9248 multiletter control sequences out of 15000+200000
+ 36931 words of font info for 45 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 38i,5n,27p,396b,592s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\gmarques\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
+00\ecrm0900.pk>{C:/Program Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc} <C:\Us
+ers\gmarques\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm10
+00.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
+ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
+rogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/
+MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX/fonts/type1
+/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb
+><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on DEBtoolAnimal-manual.pdf (30 pages, 319571 bytes).
+PDF statistics:
+ 1000 PDF objects out of 1000 (max. 8388607)
+ 376 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

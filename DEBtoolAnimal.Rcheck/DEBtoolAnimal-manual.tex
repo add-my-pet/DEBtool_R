@@ -67,6 +67,7 @@ list with updated par, units, label and free
 Other add-my-pet auxiliary functions: \code{\LinkA{addpseudodata}{addpseudodata}};
 \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
 \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -110,6 +111,7 @@ structures with data, units, label and weights
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
 \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -334,7 +336,9 @@ estim_pars()
 %
 \begin{SeeAlso}\relax
 Other add-my-pet functions: \code{\LinkA{mydata\_pets}{mydata.Rul.pets}};
-\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
+\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{predict\_pets}{predict.Rul.pets}};
+\code{\LinkA{printpar}{printpar}}; \code{\LinkA{printprd}{printprd}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -369,6 +373,7 @@ list of list of strings with fields including the field name in str
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -407,6 +412,7 @@ list of strings with fields including the field name in str
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
 \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -534,6 +540,7 @@ list with d\_V and info
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -1032,6 +1039,38 @@ K2C(293.15)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
+\HeaderA{mre\_st}{Computes mean relative error}{mre.Rul.st}
+%
+\begin{Description}\relax
+Computes relative errors and mean relative error for using data and predictions
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+mre_st(func, par, data, auxData, weights)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{func}] string with predict file name
+
+\item[\code{par}] data frame with parameter values
+
+\item[\code{data}] data frame with data values
+
+\item[\code{auxData}] data frame with auxiliary data values
+
+\item[\code{weights}] data frame with values of weights
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
 \HeaderA{mydata\_my\_pet}{Sets referenced data}{mydata.Rul.my.Rul.pet}
 %
 \begin{Description}\relax
@@ -1077,7 +1116,9 @@ structure with data, auxData, metaData, txtData and weights for several pets
 %
 \begin{SeeAlso}\relax
 Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
-\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
+\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{predict\_pets}{predict.Rul.pets}};
+\code{\LinkA{printpar}{printpar}}; \code{\LinkA{printprd}{printprd}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -1164,6 +1205,7 @@ list with compound parameters
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
 \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
@@ -1242,7 +1284,9 @@ and indicator 1 if convergence has been successful or 0 otherwise (info)
 %
 \begin{SeeAlso}\relax
 Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
-\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{predict\_pets}{predict.Rul.pets}};
+\code{\LinkA{printpar}{printpar}}; \code{\LinkA{printprd}{printprd}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
 \end{SeeAlso}
 \inputencoding{utf8}
 \HeaderA{predict\_my\_pet}{Obtains predictions, using parameters and data}{predict.Rul.my.Rul.pet}
@@ -1282,6 +1326,131 @@ predict_my_pet(par, data, auxData)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
+\HeaderA{predict\_pets}{Concatenates predict files for several species}{predict.Rul.pets}
+%
+\begin{Description}\relax
+Concatenates predict files for several species
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+predict_pets(parGrp, data, auxData)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{parGrp}] data frame with parameter values of the group
+
+\item[\code{data}] data frame with data values
+
+\item[\code{auxData}] data frame with auxiliary data values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+structure with prdData and prdInfo for several pets
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}};
+\code{\LinkA{printpar}{printpar}}; \code{\LinkA{printprd}{printprd}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{predict\_pseudodata}{Predicts pseudodata values}{predict.Rul.pseudodata}
+%
+\begin{Description}\relax
+Adds pseudodata predictions into predictions structure
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+predict_pseudodata(par, data, prdData)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+
+\item[\code{data}] data frame with data values
+
+\item[\code{prdData}] data frame with prediction values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+structure with pseudodata predictions
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{printpar}{Prints parameters of a species to screen}{printpar}
+%
+\begin{Description}\relax
+Prints parameters of a species to screen
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+printpar(par, txtPar)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] list with parameter values
+
+\item[\code{txtPar}] list with text info on parameters
+\end{ldescription}
+\end{Arguments}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}};
+\code{\LinkA{predict\_pets}{predict.Rul.pets}}; \code{\LinkA{printprd}{printprd}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{printprd}{Prints data of a species to screen}{printprd}
+%
+\begin{Description}\relax
+Prints data of a species to screen
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+printprd(data, txtData, prdData, RE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] list with data values
+
+\item[\code{txtData}] list with text info on data
+
+\item[\code{prdData}] list with prediction values
+
+\item[\code{RE}] list with relative errors
+\end{ldescription}
+\end{Arguments}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}};
+\code{\LinkA{predict\_pets}{predict.Rul.pets}}; \code{\LinkA{printpar}{printpar}};
+\code{\LinkA{results\_pets}{results.Rul.pets}}
+\end{SeeAlso}
+\inputencoding{utf8}
 \HeaderA{print\_filterflag}{Prints an explanation of the filter flag onto the screen}{print.Rul.filterflag}
 %
 \begin{Description}\relax
@@ -1305,8 +1474,8 @@ print_filterflag(flag)
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
-\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{rmpseudodata}{rmpseudodata}};
-\code{\LinkA{setweights}{setweights}}
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -1430,7 +1599,9 @@ results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights)
 %
 \begin{SeeAlso}\relax
 Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
-\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}}
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}};
+\code{\LinkA{predict\_pets}{predict.Rul.pets}}; \code{\LinkA{printpar}{printpar}};
+\code{\LinkA{printprd}{printprd}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -1465,8 +1636,8 @@ structure with "psd" field removed
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
-\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
-\code{\LinkA{setweights}{setweights}}
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -1511,7 +1682,8 @@ structure with weights
 Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
 \code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
 \code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
-\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{predict\_pseudodata}{predict.Rul.pseudodata}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
 \code{\LinkA{rmpseudodata}{rmpseudodata}}
 \end{SeeAlso}
 %

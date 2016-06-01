@@ -28,6 +28,8 @@ Calculates least squares estimates using Nelder Mead's simplex method using a fi
 }
 \seealso{
 Other add-my-pet functions: \code{\link{estim_pars}};
-  \code{\link{mydata_pets}}; \code{\link{results_pets}}
+  \code{\link{mydata_pets}}; \code{\link{predict_pets}};
+  \code{\link{printpar}}; \code{\link{printprd}};
+  \code{\link{results_pets}}
 }
 

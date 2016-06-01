@@ -31,6 +31,7 @@ get_ubarE0              Computes initial scaled reserve density at
 get_ue0                 Computes initial scaled reserve
 initial_scaled_reserve
                         Gets initial scaled reserve
+mre_st                  Computes mean relative error
 mydata_my_pet           Sets referenced data
 mydata_pets             Concatenates mydata files for several species
 nmregr_options          Sets options for function nmregr
@@ -40,8 +41,12 @@ parscomp                Computes compound parameters from primary
 petregr_f               Calculates least squares estimates using Nelder
                         Mead's simplex method using a filter
 predict_my_pet          Obtains predictions, using parameters and data
+predict_pets            Concatenates predict files for several species
+predict_pseudodata      Predicts pseudodata values
 print_filterflag        Prints an explanation of the filter flag onto
                         the screen
+printpar                Prints parameters of a species to screen
+printprd                Prints data of a species to screen
 reach_birth             Checks if parameters allow for reaching birth
                         in the standard DEB model
 reprod_rate             Gets reproduction rate

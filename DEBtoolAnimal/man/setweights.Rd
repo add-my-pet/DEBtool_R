@@ -31,7 +31,8 @@ setweights(data)
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
   \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
   \code{\link{fieldnmnst}}; \code{\link{get_d_V}};
-  \code{\link{parscomp}}; \code{\link{print_filterflag}};
+  \code{\link{parscomp}}; \code{\link{predict_pseudodata}};
+  \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}
 }
 

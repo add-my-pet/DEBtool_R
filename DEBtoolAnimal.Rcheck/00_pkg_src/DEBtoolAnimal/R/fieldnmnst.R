@@ -12,15 +12,15 @@ fieldnmnst <- function(st){
   baux <- 1;
 
   while(baux <= length(nm)) {
-    for(currentField in nm)
-      if(is.list(st[[currentField]])) {
-        vaux <- names(st[[currentField]]);
-        for(vauxField in vaux)
-          nm[[length(nm)+1]] <- c(currentField, vauxField)
-        #nm <- lapply(nm, function(x) x[sapply(x, length) >= 3]);
-        nm <- nm[nm != currentField];
-      } else
-        baux <- baux + 1;
+    currentField <- nm[[baux]];
+    if(is.list(st[[currentField]])) {
+      vaux <- names(st[[currentField]]);
+      for(vauxField in vaux)
+        nm[[length(nm)+1]] <- c(currentField, vauxField)
+      #nm <- lapply(nm, function(x) x[sapply(x, length) >= 3]);
+      nm[baux] <- NULL;
+    } else
+      baux <- baux + 1;
   }
 
 

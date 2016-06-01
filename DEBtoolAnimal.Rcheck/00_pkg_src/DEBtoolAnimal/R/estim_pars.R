@@ -39,10 +39,7 @@ estim_pars <- function(){
          }
   )
 
-  if(petsNumber > 1)
-    cov.rulesnm <- paste("cov_rules_", metaPar$covRules, sep = "")
-  else
-    cov.rulesnm <- "cov_rules_1species"
+  cov.rulesnm <- paste("cov_rules_", cov_rules, sep = "")
 
   # check parameter set if you are using a filter
   if(filter) {
@@ -63,13 +60,13 @@ estim_pars <- function(){
   if(method != "no")
     if(method == "nm")
       if(petsNumber == 1)
-        par <- petregr_f("predict_pets", par, data, auxData, weights, filternm)     # WLS estimate parameters using overwrite
+        list[par] <- petregr_f("predict_pets", par, data, auxData, weights, filternm)     # WLS estimate parameters using overwrite
       else
-        par <- groupregr_f("predict_pets", par, data, auxData, weights, filternm, covRulesnm);  # WLS estimate parameters using overwrite
+        list[par] <- groupregr_f("predict_pets", par, data, auxData, weights, filternm, covRulesnm);  # WLS estimate parameters using overwrite
 
   # Results
-  #results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights);
-  prdData <- predict_my_pet(par, data$my_pet, auxData$my_pet)[[1]]
+  results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights);
+  #prdData <- predict_my_pet(par, data$my_pet, auxData$my_pet)[[1]];
 
   if(filter) {
     warningnm <- paste("warning_", metaPar$model, sep = "")
@@ -80,8 +77,6 @@ estim_pars <- function(){
         do.call(warningnm, list(par, i))
       }
   }
-
-  return(prdData)
 
 }
 

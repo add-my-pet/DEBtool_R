@@ -20,7 +20,7 @@ print_filterflag(3)
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
   \code{\link{addpseudodata}}; \code{\link{fieldnm_wtxt}};
   \code{\link{fieldnmnst}}; \code{\link{get_d_V}};
-  \code{\link{parscomp}}; \code{\link{rmpseudodata}};
-  \code{\link{setweights}}
+  \code{\link{parscomp}}; \code{\link{predict_pseudodata}};
+  \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

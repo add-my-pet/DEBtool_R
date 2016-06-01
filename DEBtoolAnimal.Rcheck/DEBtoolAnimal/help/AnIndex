@@ -22,6 +22,7 @@ get_ubarE0	get_ubarE0
 get_ue0	get_ue0
 initial_scaled_reserve	initial_scaled_reserve
 K2C	K2C
+mre_st	mre_st
 mydata_my_pet	mydata_my_pet
 mydata_pets	mydata_pets
 nmregr_options	nmregr_options
@@ -29,6 +30,10 @@ parscomp	parscomp
 pars_init_my_pet	pars_init_my_pet
 petregr_f	petregr_f
 predict_my_pet	predict_my_pet
+predict_pets	predict_pets
+predict_pseudodata	predict_pseudodata
+printpar	printpar
+printprd	printprd
 print_filterflag	print_filterflag
 reach_birth	reach_birth
 reprod_rate	reprod_rate

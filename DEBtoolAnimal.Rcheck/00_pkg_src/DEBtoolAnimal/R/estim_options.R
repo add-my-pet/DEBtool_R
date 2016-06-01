@@ -36,6 +36,7 @@ estim_options <- function(key = "inexistent", val = ""){
   switch(key,
          default = {
            assign("filter", 1, envir = .GlobalEnv)
+           assign("cov_rules", "1species", envir = .GlobalEnv)
            assign("pars_init_method", 0, envir = .GlobalEnv)
            assign("pseudodata_pets", 0, envir = .GlobalEnv)
            assign("results_output", 0, envir = .GlobalEnv)
@@ -52,6 +53,18 @@ estim_options <- function(key = "inexistent", val = ""){
                cat("filter = unknown \n")
              cat("0 - do not use filter \n");
              cat("1 - use filter \n");
+           }
+         },
+         cov_rules = {
+           if(nchar(val) != 0){
+             assign("method", val, envir = .GlobalEnv)
+           } else {
+             if(exists("method"))
+               cat("cov_rules = ", cov_rules, "\n", sep = "")
+             else
+               cat("cov_rules = unknown \n")
+             cat("'1species' - one species only \n");
+             cat("'basic' - basic body-size scaling relationships \n");
            }
          },
          pars_init_method = {
@@ -111,6 +124,10 @@ estim_options <- function(key = "inexistent", val = ""){
              cat("filter = ", filter, "\n", sep = "")
            else
              cat("filter = unknown \n")
+           if(exists("cov_rules"))
+             cat("cov_rules = ", cov_rules, sep = "")
+           else
+             cat("cov_rules = unknown \n")
            if(exists("pars_init_method"))
              cat("pars_init_method = ", pars_init_method, "\n", sep = "")
            else
@@ -148,6 +165,10 @@ estim_options <- function(key = "inexistent", val = ""){
                cat("filter = ", filter, "\n", sep = "")
              else
                cat("filter = unknown \n")
+             if(exists("cov_rules"))
+               cat("cov_rules = ", cov_rules, sep = "")
+             else
+               cat("cov_rules = unknown \n")
              if(exists("pars_init_method"))
                cat("pars_init_method = ", pars_init_method, "\n", sep = "")
              else

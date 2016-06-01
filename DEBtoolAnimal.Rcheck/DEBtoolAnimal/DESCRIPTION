@@ -9,5 +9,5 @@ Description: DEB based functions for the  std (standard) and abj (with accelerat
 License: GPL
 LazyData: TRUE
 NeedsCompilation: no
-Packaged: 2016-05-26 13:20:09 UTC; gmarques
-Built: R 3.2.2; ; 2016-05-26 13:20:12 UTC; windows
+Packaged: 2016-06-01 11:31:36 UTC; gmarques
+Built: R 3.2.2; ; 2016-06-01 11:31:41 UTC; windows
