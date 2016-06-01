@@ -14,6 +14,6 @@ estim_pars()
 }
 \seealso{
 Other add-my-pet functions: \code{\link{mydata_pets}};
-  \code{\link{petregr_f}}
+  \code{\link{petregr_f}}; \code{\link{results_pets}}
 }
 

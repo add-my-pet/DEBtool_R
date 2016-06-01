@@ -12,7 +12,7 @@ beta0(x0, x1)
 \item{x1}{scalar with upper boundary for integration}
 }
 \value{
-scalar with particular incomple beta function
+scalar with particular incomplete beta function
 }
 \description{
 particular incomplete beta function:

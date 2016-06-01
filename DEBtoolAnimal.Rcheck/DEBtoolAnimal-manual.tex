@@ -26,6 +26,57 @@
 \end{description}
 \Rdcontents{\R{} topics documented:}
 \inputencoding{utf8}
+\HeaderA{addchem}{Sets chemical parameters and text for units and labels}{addchem}
+%
+\begin{Description}\relax
+Sets chemical parameters and text for units and labels
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+addchem(par, units, label, free, phylum, class)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+
+\item[\code{units}] data frame with parameter units
+
+\item[\code{label}] data frame with parameter labels
+
+\item[\code{free}] data frame with information on which parameter to free or fix
+
+\item[\code{phylum}] string with species phylum
+
+\item[\code{class}] string with species class
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Calls get\_d\_V to set specific density of structure. For a specific density of wet mass of 1 g/cm\textasciicircum{}3,
+a specific density of d\_E = d\_V = 0.1 g/cm\textasciicircum{}3 means a dry-over-wet weight ratio of 0.1
+\end{Details}
+%
+\begin{Value}
+list with updated par, units, label and free
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addpseudodata}{addpseudodata}};
+\code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
+\code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+pars_init_my_pet(metaData)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
 \HeaderA{addpseudodata}{Adds pseudodata information into inputed data structures}{addpseudodata}
 %
 \begin{Description}\relax
@@ -52,11 +103,15 @@ addpseudodata(data = list(), units = list(), label = list(),
 \end{Arguments}
 %
 \begin{Value}
-structures with data, units, labael and weights
+structures with data, units, label and weights
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other add-my-pet auxiliary functions: \code{\LinkA{setweights}{setweights}}
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
+\code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -92,7 +147,7 @@ To be used in the computation of the age at birth (or related quantities) for an
 \end{Details}
 %
 \begin{Value}
-scalar with particular incomple beta function
+scalar with particular incomplete beta function
 \end{Value}
 %
 \begin{SeeAlso}\relax
@@ -168,8 +223,11 @@ scalar with derivative value d delta/ dx
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}};
 \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
-\code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_lp}{get.Rul.lp}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -177,6 +235,32 @@ Other scaled get functions: \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}};
 dget_lbarb2(10^(-6), 0, c(lbarb = 0.003, xb = 10/11, xb3 = (10/11)^(1/3), k = 1))
 \end{ExampleCode}
 \end{Examples}
+\inputencoding{utf8}
+\HeaderA{dget\_l\_ISO}{Computes derivative d l/d vH}{dget.Rul.l.Rul.ISO}
+%
+\begin{Description}\relax
+Obtains the derivative d l/d vH from g, k, lT, f, sM.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+dget_l_ISO(vH, l, pars)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{vH}] scaled maturity volume
+
+\item[\code{l}] scaled length
+
+\item[\code{pars}] data.frame with g, k, lT, f, sM
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+scalar with derivative value d l/ d vH
+\end{Value}
 \inputencoding{utf8}
 \HeaderA{estim\_options}{Sets options for estim\_pars}{estim.Rul.options}
 %
@@ -239,7 +323,7 @@ estim_options("default")
 \HeaderA{estim\_pars}{Estimates parameters}{estim.Rul.pars}
 %
 \begin{Description}\relax
-Runs the entire estimation procedures: gets the parameters, gets the data, intiates the estimation procedure and sends the results for handling
+Runs the entire estimation procedures: gets the parameters, gets the data, initiates the estimation procedure and sends the results for handling
 \end{Description}
 %
 \begin{Usage}
@@ -249,12 +333,131 @@ estim_pars()
 \end{Usage}
 %
 \begin{SeeAlso}\relax
-Other add-my-pet functions: \code{\LinkA{mydata\_pets}{mydata.Rul.pets}}
+Other add-my-pet functions: \code{\LinkA{mydata\_pets}{mydata.Rul.pets}};
+\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
 estim_pars()
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{fieldnmnst}{Creates a list of field names of a structure}{fieldnmnst}
+%
+\begin{Description}\relax
+Creates a list of field names of a structure
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+fieldnmnst(st)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{st}] data frame with fields
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list of list of strings with fields including the field name in str
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+nst <- fieldnmnst(st)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{fieldnm\_wtxt}{Searches for fields with a given name in a multilevel structure}{fieldnm.Rul.wtxt}
+%
+\begin{Description}\relax
+Creates a list of field names of a data frame with str
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+fieldnm_wtxt(data = list(), str = "")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] data frame with fields
+
+\item[\code{str}] string with field name
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list of strings with fields including the field name in str
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnmnst}{fieldnmnst}};
+\code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+nmpsd <- fieldnm_wtxt(data, "psd")
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{filter\_std}{Filters for allowed parameters of standard DEB model without acceleration}{filter.Rul.std}
+%
+\begin{Description}\relax
+Checks if parameter values are in the allowable part of the parameter space of
+standard DEB model without acceleration. Meant to be run in the estimation procedure
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+filter_std(par)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The flag is an indicator of reason for not passing the filter and it means
+0: parameters pass the filter
+1: some parameter is negative
+2: some kappa is larger than 1
+3: growth efficiency is larger than 1
+4: maturity levels do not increase during life cycle
+5: puberty cannot be reached
+\end{Details}
+%
+\begin{Value}
+list with filter and flag
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other filter functions: \code{\LinkA{reach\_birth}{reach.Rul.birth}};
+\code{\LinkA{warning\_std}{warning.Rul.std}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+filter_std(par)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -285,13 +488,59 @@ scalar with function f which when zero indicates lbarb
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
 \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
-\code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_lp}{get.Rul.lp}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
 fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vbarHb = 0.001, k = 1))
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_d\_V}{Sets chemical parameters and text for units and labels}{get.Rul.d.Rul.V}
+%
+\begin{Description}\relax
+Sets chemical parameters and text for units and labels
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_d_V(phylum, class)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{phylum}] string with species phylum
+
+\item[\code{class}] string with species class
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Calls get\_d\_V to set specific density of structure. For a specific density of wet mass of 1 g/cm\textasciicircum{}3,
+a specific density of d\_E = d\_V = 0.1 g/cm\textasciicircum{}3 means a dry-over-wet weight ratio of 0.1
+\end{Details}
+%
+\begin{Value}
+list with d\_V and info
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{parscomp}{parscomp}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_d_V("Chordata", "Mammalia")
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -332,14 +581,17 @@ Consider the application of get\_lb\_foetus for an alternative initial value.
 \end{Details}
 %
 \begin{Value}
-scalar with scaled length at birth (lb) and indicator equals 1 if successful, 0 otherwise (info)
+scalar with scaled length at birth (lb) and indicator equals 1 if successful convergence, 0 otherwise (info)
 \end{Value}
 %
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
 \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
-\code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
-\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lp}{get.Rul.lp}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -377,8 +629,11 @@ scalar with scaled length at birth (lbarb) and indicator equals 1 if successful,
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
 \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
-\code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_lp}{get.Rul.lp}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -414,13 +669,209 @@ scalar with scaled length at birth (lbarb) and indicator equals 1 if successful,
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
 \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb}{get.Rul.lbarb}};
-\code{\LinkA{get\_lb}{get.Rul.lb}};
-\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\code{\LinkA{get\_lb}{get.Rul.lb}}; \code{\LinkA{get\_lp}{get.Rul.lp}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
 \begin{ExampleCode}
 get_lbarb2(c(g = 10, k = 1, vbarHb = 0.01), 1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_lp}{Computes scaled length at puberty}{get.Rul.lp}
+%
+\begin{Description}\relax
+Obtains scaled length at pubertyat constant food density.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_lp(pars, f = 1, lb0 = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pars}] 5-vector with parameters: g, k, l\_T, v\_H\textasciicircum{}b, v\_H\textasciicircum{}p
+
+\item[\code{lb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
+
+\item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+If scaled length at birth (second input) is not specified, it is computed (using automatic initial estimate).
+If it is specified, however, is it just copied to the (second) output. Food density is assumed to be constant.
+\end{Details}
+%
+\begin{Value}
+scaled length at puberty (lp), scaler length at birth (lb)
+and indicator equals 1 if successful convergence, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_tb}{get.Rul.tb}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_lp(c(g = 10, k = 1, lT = 0, vHb = 0.5, vHp = 10), 1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_tb}{Gets scaled age at birth}{get.Rul.tb}
+%
+\begin{Description}\relax
+Obtains scaled age at birth, given the scaled reserve density at birth.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_tb(pars, eb = 1, lb = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pars}] 3-vector with parameters: g, k, v\_H\textasciicircum{}b
+
+\item[\code{eb}] optional scalar with scaled reserve density at birth (default eb = 1)
+
+\item[\code{lb0}] optional scalar with initial estimate for scaled length at birth (default lb0: lb for k = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Multiply the result with the somatic maintenance rate coefficient to arrive at age at puberty.
+\end{Details}
+%
+\begin{Value}
+list with scaled age at birth tau\_b = a\_b k\_M (tb), scaled length at birth (lb)
+and indicator equals 1 if successful convergence, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_lp}{get.Rul.lp}}; \code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_tb(c(g = 10, k = 1, vHb = 0.5), 1)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{get\_tm\_s}{Obtains scaled mean age at death for short growth periods}{get.Rul.tm.Rul.s}
+%
+\begin{Description}\relax
+Obtains scaled mean age at death assuming a short growth period relative to the life span
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_tm_s(pars, f = 1, lb = NA, lp = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pars}] 4 or 7-vector with parameters: [g lT ha sG] or [g k lT vHb vHp ha SG]
+
+\item[\code{f}] optional scalar with scaled reserve density at birth (default f = 1)
+
+\item[\code{lb}] optional scalar with scaled length at birth (default: lb is obtained from get\_lb)
+
+\item[\code{lp}] optional scalar with scaled length at puberty
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Divide the result by the somatic maintenance rate coefficient to arrive at the mean age at death.
+The variant get\_tm\_foetus does the same in case of foetal development.
+If the input parameter vector has only 4 elements (for [g, lT, ha/ kM2, sG]),
+it skips the calulation of the survival probability at birth and puberty.
+\end{Details}
+%
+\begin{Value}
+list with  scalar with scaled mean life span (tm),
+scalar with survival probability at birth (if length p = 7) (Sb),
+scalar with survival prabability at puberty (if length p = 7) (Sp)
+and indicator equals 1 if successful convergence, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_lp}{get.Rul.lp}}; \code{\LinkA{get\_tb}{get.Rul.tb}};
+\code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{get\_tp}{Gets scaled age at puberty}{get.Rul.tp}
+%
+\begin{Description}\relax
+Obtains scaled age at puberty.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+get_tp(pars, f = 1, lb0 = as.numeric(pars[4]^(1/3)))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pars}] 5-vector with parameters: g, k, l\_T, v\_H\textasciicircum{}b, v\_H\textasciicircum{}p
+
+\item[\code{f}] optional scalar with functional response (default f = 1)
+
+\item[\code{lb0}] optional scalar with scaled length at birth (default lb0: lb for k = 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Food density is assumed to be constant. Multiply the result with the
+somatic maintenance rate coefficient to arrive at age at puberty.
+\end{Details}
+%
+\begin{Value}
+list with scaled age at puberty tau\_p = a\_p k\_M (tp),
+scaled age at birth tau\_b = a\_b k\_M (tb),
+scaled length at puberty (lp), scaled length at birth (lb)
+and indicator equals 1 if successful convergence, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_lp}{get.Rul.lp}}; \code{\LinkA{get\_tb}{get.Rul.tb}};
+\code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+get_tp(c(g = 10, k = 1, lT = 0, vHb = 0.5, vHp = 10), 1)
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
@@ -536,7 +987,10 @@ n-vector with initial scaled reserve: M\_E\textasciicircum{}0/ J\_EAm (U0), n-ve
 \begin{SeeAlso}\relax
 Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
 \code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
-\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}}
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_lp}{get.Rul.lp}}; \code{\LinkA{get\_tb}{get.Rul.tb}};
+\code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}}; \code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{reprod\_rate}{reprod.Rul.rate}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -594,6 +1048,11 @@ mydata_my_pet()
 list with data, auxData, metaData, txtData and weights
 \end{Value}
 %
+\begin{SeeAlso}\relax
+Other add-my-pet template functions: \code{\LinkA{pars\_init\_my\_pet}{pars.Rul.init.Rul.my.Rul.pet}};
+\code{\LinkA{predict\_my\_pet}{predict.Rul.my.Rul.pet}}
+\end{SeeAlso}
+%
 \begin{Examples}
 \begin{ExampleCode}
 mydata_my_pet()
@@ -617,7 +1076,8 @@ structure with data, auxData, metaData, txtData and weights for several pets
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}}
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{petregr\_f}{petregr.Rul.f}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -678,6 +1138,343 @@ nmregr_options("default")
 \end{ExampleCode}
 \end{Examples}
 \inputencoding{utf8}
+\HeaderA{parscomp}{Computes compound parameters from primary parameters}{parscomp}
+%
+\begin{Description}\relax
+Computes compound parameters from primary parameters that are frequently used
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+parscomp(par)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list with compound parameters
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}; \code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+parscomp(par)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{pars\_init\_my\_pet}{Sets (initial values for) parameters}{pars.Rul.init.Rul.my.Rul.pet}
+%
+\begin{Description}\relax
+Sets (initial values for) parameters\$ Meant to be a template in add-my-pet
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+pars_init_my_pet(metaData)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{metaData}] data frame with info about this entry (needed for names of phylum and class to get d\_V)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list with par (with values of parameters), metaPar (with information on metaparameters) and txtPar (with information on parameters)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet template functions: \code{\LinkA{mydata\_my\_pet}{mydata.Rul.my.Rul.pet}};
+\code{\LinkA{predict\_my\_pet}{predict.Rul.my.Rul.pet}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+pars_init_my_pet(metaData)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{petregr\_f}{Calculates least squares estimates using Nelder Mead's simplex method using a filter}{petregr.Rul.f}
+%
+\begin{Description}\relax
+Calculates least squares estimates using Nelder Mead's simplex method using a filter
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+petregr_f(func, par, data, auxData, weights, filternm)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{func}] character string with name of user-defined function
+
+\item[\code{par}] list with parameters
+
+\item[\code{data}] list with data
+
+\item[\code{auxData}] list with auxiliary data
+
+\item[\code{weights}] list with weights
+
+\item[\code{filternm}] character string with name of user-defined filter function
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list with list with parameters resulting from estimation procedure (par)
+and indicator 1 if convergence has been successful or 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{results\_pets}{results.Rul.pets}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{predict\_my\_pet}{Obtains predictions, using parameters and data}{predict.Rul.my.Rul.pet}
+%
+\begin{Description}\relax
+Obtains predictions, using parameters and data
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+predict_my_pet(par, data, auxData = list())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+
+\item[\code{data}] data frame with data values
+
+\item[\code{auxData}] data frame with auxiliary data values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list with prdData (data frame with values of predictions) and info (indicator for customized filters)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet template functions: \code{\LinkA{mydata\_my\_pet}{mydata.Rul.my.Rul.pet}};
+\code{\LinkA{pars\_init\_my\_pet}{pars.Rul.init.Rul.my.Rul.pet}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+predict_my_pet(par, data, auxData)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{print\_filterflag}{Prints an explanation of the filter flag onto the screen}{print.Rul.filterflag}
+%
+\begin{Description}\relax
+Prints an explanation to the screen according to the flag produced by a filter.
+Meant to be run in the estimation procedure for the seed parameter set
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+print_filterflag(flag)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{flag}] integer with code from filter
+\end{ldescription}
+\end{Arguments}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{rmpseudodata}{rmpseudodata}};
+\code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+print_filterflag(3)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{reach\_birth}{Checks if parameters allow for reaching birth in the standard DEB model}{reach.Rul.birth}
+%
+\begin{Description}\relax
+Checks if parameters allow for reaching birth in the standard DEB model
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+reach_birth(g, k, vHb, f = 1)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{g}] energy investment ratio
+
+\item[\code{k}] ratio of maturity and somatic maintenance rate coeff
+
+\item[\code{vHb}] scaled maturity volume at birth
+
+\item[\code{f}] functional response (default 1)
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+info, indicator equals 1 if reaches birth, 0 otherwise
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other filter functions: \code{\LinkA{filter\_std}{filter.Rul.std}};
+\code{\LinkA{warning\_std}{warning.Rul.std}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+reach_birth(g = 10, k = 1, vHb = 0.5)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{reprod\_rate}{Gets reproduction rate}{reprod.Rul.rate}
+%
+\begin{Description}\relax
+Calculates the reproduction rate in number of eggs per time for an individual of length L
+and scaled reserve density f.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+reprod_rate(L, f = 1, pars, Lf = NA)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{L}] n-vector with length
+
+\item[\code{f}] scalar with functional response
+
+\item[\code{pars}] 9-vector with parameters: kap, kapR, g, kJ, kM, LT, v, UHb, UHp
+
+\item[\code{Lf}] optional scalar with length at birth (initial value only)
+or optional 2-vector with length, L, and scaled functional response f0
+for a juvenile that is now exposed to f, but previously at another f
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+list with n-vector with reproduction rates (R), scalar with scaled initial reserve (UE0),
+scalar with (volumetric) length at birth (Lb), scalar with (volumetric) length at puberty (Lp) and
+indicator with 1 for success, 0 otherwise (info)
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other scaled get functions: \code{\LinkA{dget\_lbarb2}{dget.Rul.lbarb2}};
+\code{\LinkA{fnget\_lbarb2}{fnget.Rul.lbarb2}}; \code{\LinkA{get\_lbarb2}{get.Rul.lbarb2}};
+\code{\LinkA{get\_lbarb}{get.Rul.lbarb}}; \code{\LinkA{get\_lb}{get.Rul.lb}};
+\code{\LinkA{get\_lp}{get.Rul.lp}}; \code{\LinkA{get\_tb}{get.Rul.tb}};
+\code{\LinkA{get\_tm\_s}{get.Rul.tm.Rul.s}}; \code{\LinkA{get\_tp}{get.Rul.tp}};
+\code{\LinkA{initial\_scaled\_reserve}{initial.Rul.scaled.Rul.reserve}}
+\end{SeeAlso}
+\inputencoding{utf8}
+\HeaderA{results\_pets}{Prints results of estimation}{results.Rul.pets}
+%
+\begin{Description}\relax
+Prints the results of the esimation procedure in the screen, .mat file and makes figures of graphs
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+
+\item[\code{metaPar}] data frame with metainformation on models
+
+\item[\code{txtPar}] data frame with information on parameters
+
+\item[\code{data}] data frame with data values
+
+\item[\code{auxData}] data frame with auxiliary data values
+
+\item[\code{metaData}] data frame with metainformation on the entry
+
+\item[\code{txtData}] data frame with infromation on data
+
+\item[\code{weights}] data frame with values of weights
+\end{ldescription}
+\end{Arguments}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet functions: \code{\LinkA{estim\_pars}{estim.Rul.pars}};
+\code{\LinkA{mydata\_pets}{mydata.Rul.pets}}; \code{\LinkA{petregr\_f}{petregr.Rul.f}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+results_pets(par, metaPar, txtPar, data, auxData, metaData, txtData, weights)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{rmpseudodata}{Removes pseudodata information from inputed data structures}{rmpseudodata}
+%
+\begin{Description}\relax
+Removes pseudodata information from inputed data structures
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+rmpseudodata(data = list())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] structure with "psd" field to be removed
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+structure with "psd" field removed
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{setweights}{setweights}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+data <- rmpseudodata(data)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
 \HeaderA{setweights}{Sets automatically the weights for the data (to be used in a regression)}{setweights}
 %
 \begin{Description}\relax
@@ -700,9 +1497,9 @@ setweights(data, weights = list())
 %
 \begin{Details}\relax
 computes weights for given data and adds it to the weight structure
-for the zero-variate data y the weight will be
+for the zero-variate data y, the weight will be
 \deqn{min(100, 1/ max(10^-6, y) ^2 \right)}{}
-for the uni-variate data y the weight will be
+for the uni-variate data y, the weight will be
 \deqn{1/ N \bar{y}^2}{}
 \end{Details}
 %
@@ -711,7 +1508,11 @@ structure with weights
 \end{Value}
 %
 \begin{SeeAlso}\relax
-Other add-my-pet auxiliary functions: \code{\LinkA{addpseudodata}{addpseudodata}}
+Other add-my-pet auxiliary functions: \code{\LinkA{addchem}{addchem}};
+\code{\LinkA{addpseudodata}{addpseudodata}}; \code{\LinkA{fieldnm\_wtxt}{fieldnm.Rul.wtxt}};
+\code{\LinkA{fieldnmnst}{fieldnmnst}}; \code{\LinkA{get\_d\_V}{get.Rul.d.Rul.V}};
+\code{\LinkA{parscomp}{parscomp}}; \code{\LinkA{print\_filterflag}{print.Rul.filterflag}};
+\code{\LinkA{rmpseudodata}{rmpseudodata}}
 \end{SeeAlso}
 %
 \begin{Examples}
@@ -766,6 +1567,36 @@ vector with temperature correction factors that affect all rates
 \begin{Examples}
 \begin{ExampleCode}
 tempcorr(c(330, 331, 332), 320, T_A = 12000, T_L = 277, T_H = 331, T_AL = 20000, T_AH = 190000)
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{warning\_std}{Warns of unreasonable parameters for the standard DEB model without acceleration}{warning.Rul.std}
+%
+\begin{Description}\relax
+Checks if parameter values are in the reasonable part of the parameter space
+of standard DEB model without acceleration, produces warnings. Meant to be run after the estimation procedure
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+warning_std(par)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{par}] data frame with parameter values
+\end{ldescription}
+\end{Arguments}
+%
+\begin{SeeAlso}\relax
+Other filter functions: \code{\LinkA{filter\_std}{filter.Rul.std}};
+\code{\LinkA{reach\_birth}{reach.Rul.birth}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+warning_std(par)
 \end{ExampleCode}
 \end{Examples}
 \printindex{}

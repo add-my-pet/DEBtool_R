@@ -17,7 +17,7 @@ addpseudodata(data = list(), units = list(), label = list(),
 \item{weights}{structure with weights}
 }
 \value{
-structures with data, units, labael and weights
+structures with data, units, label and weights
 }
 \description{
 Adds the pseudodata information and weights for purposes of the regression
@@ -26,6 +26,10 @@ Adds the pseudodata information and weights for purposes of the regression
 list[data, units, label, weight] <- addpseudodata();
 }
 \seealso{
-Other add-my-pet auxiliary functions: \code{\link{setweights}}
+Other add-my-pet auxiliary functions: \code{\link{addchem}};
+  \code{\link{fieldnm_wtxt}}; \code{\link{fieldnmnst}};
+  \code{\link{get_d_V}}; \code{\link{parscomp}};
+  \code{\link{print_filterflag}};
+  \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

@@ -1,16 +1,31 @@
 C2K                     Conversion of Celsius to Kelvin
 K2C                     Conversion of Kelvin to Celsius
+addchem                 Sets chemical parameters and text for units and
+                        labels
 addpseudodata           Adds pseudodata information into inputed data
                         structures
 beta0                   Particular incomplete beta function
+dget_l_ISO              Computes derivative d l/d vH
 dget_lbarb2             Computes derivative d delta/dx
 estim_options           Sets options for estim_pars
 estim_pars              Estimates parameters
+fieldnm_wtxt            Searches for fields with a given name in a
+                        multilevel structure
+fieldnmnst              Creates a list of field names of a structure
+filter_std              Filters for allowed parameters of standard DEB
+                        model without acceleration
 fnget_lbarb2            Computes f using the ode solver for delta(x),
                         for finding lbarb
+get_d_V                 Sets chemical parameters and text for units and
+                        labels
 get_lb                  Computes scaled length at birth
 get_lbarb               Computes scaled length at birth lbarb
 get_lbarb2              Computes initial scaled reserve
+get_lp                  Computes scaled length at puberty
+get_tb                  Gets scaled age at birth
+get_tm_s                Obtains scaled mean age at death for short
+                        growth periods
+get_tp                  Gets scaled age at puberty
 get_ubarE0              Computes initial scaled reserve density at
                         birth
 get_ue0                 Computes initial scaled reserve
@@ -19,6 +34,22 @@ initial_scaled_reserve
 mydata_my_pet           Sets referenced data
 mydata_pets             Concatenates mydata files for several species
 nmregr_options          Sets options for function nmregr
+pars_init_my_pet        Sets (initial values for) parameters
+parscomp                Computes compound parameters from primary
+                        parameters
+petregr_f               Calculates least squares estimates using Nelder
+                        Mead's simplex method using a filter
+predict_my_pet          Obtains predictions, using parameters and data
+print_filterflag        Prints an explanation of the filter flag onto
+                        the screen
+reach_birth             Checks if parameters allow for reaching birth
+                        in the standard DEB model
+reprod_rate             Gets reproduction rate
+results_pets            Prints results of estimation
+rmpseudodata            Removes pseudodata information from inputed
+                        data structures
 setweights              Sets automatically the weights for the data (to
                         be used in a regression)
 tempcorr                Temperature correction
+warning_std             Warns of unreasonable parameters for the
+                        standard DEB model without acceleration

@@ -75,19 +75,19 @@ Type 'q()' to quit R.
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("K2C", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-> nameEx("addpseudodata")
-> ### * addpseudodata
+> nameEx("addchem")
+> ### * addchem
 > 
 > flush(stderr()); flush(stdout())
 > 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: addpseudodata
-> ### Title: Adds pseudodata information into inputed data structures
-> ### Aliases: addpseudodata
+> ### Name: addchem
+> ### Title: Sets chemical parameters and text for units and labels
+> ### Aliases: addchem
 > 
 > ### ** Examples
 > 
-> list[data, units, label, weight] <- addpseudodata();
-Error in list[data, units, label, weight] <- addpseudodata() : 
-  object 'label' not found
+> pars_init_my_pet(metaData)
+Error in get_d_V(phylum, class) : object 'metaData' not found
+Calls: pars_init_my_pet -> addchem -> get_d_V
 Execution halted

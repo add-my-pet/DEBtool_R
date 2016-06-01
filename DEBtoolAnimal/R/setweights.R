@@ -22,7 +22,7 @@ setweights <- function(data, weights = list()){
         weights[[dti]] <- min(100, 1/ max(1e-6, dtSet)^ 2);
       } else {
         ndt = dim(dtSet);
-        meanval = mean(dtSet[,1]);
+        meanval = mean(dtSet[,2]);
         weights[[dti]] <- rep(1/ meanval^2/ ndt[1], ndt[1]);
       }
     }

@@ -7,12 +7,13 @@
 estim_pars()
 }
 \description{
-Runs the entire estimation procedures: gets the parameters, gets the data, intiates the estimation procedure and sends the results for handling
+Runs the entire estimation procedures: gets the parameters, gets the data, initiates the estimation procedure and sends the results for handling
 }
 \examples{
 estim_pars()
 }
 \seealso{
-Other add-my-pet functions: \code{\link{mydata_pets}}
+Other add-my-pet functions: \code{\link{mydata_pets}};
+  \code{\link{petregr_f}}; \code{\link{results_pets}}
 }
 

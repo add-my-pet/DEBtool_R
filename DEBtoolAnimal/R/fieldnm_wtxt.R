@@ -16,12 +16,9 @@ fieldnm_wtxt <- function(data = list(), str = ""){
   while(length(nmaux) > 0) {
     if(nmaux[1] == str) {
       fullnm <- list(str);
-    } else if(is.list(eval(parse(text = paste("data$", nmaux[1], sep = "")))))
+    } else if(is.list(data[[nmaux[1]]]))
       fullnmaux <- c(fullnmaux, nmaux[1]);
-    if(length(nmaux) > 1)
-      nmaux[1] <- NULL
-    else
-      nmaux <- list()
+    nmaux <- setdiff(nmaux, nmaux[1])
   }
 
   while(length(fullnmaux) > 0) {

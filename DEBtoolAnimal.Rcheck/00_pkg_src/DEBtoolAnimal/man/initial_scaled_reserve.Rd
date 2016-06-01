@@ -25,6 +25,9 @@ initial_scaled_reserve(f = c(1, 0.9), pars = c(VHb = .8, g = .42, kJ = 1.7, kM =
 \seealso{
 Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{fnget_lbarb2}}; \code{\link{get_lbarb2}};
-  \code{\link{get_lbarb}}; \code{\link{get_lb}}
+  \code{\link{get_lbarb}}; \code{\link{get_lb}};
+  \code{\link{get_lp}}; \code{\link{get_tb}};
+  \code{\link{get_tm_s}}; \code{\link{get_tp}};
+  \code{\link{reprod_rate}}
 }
 

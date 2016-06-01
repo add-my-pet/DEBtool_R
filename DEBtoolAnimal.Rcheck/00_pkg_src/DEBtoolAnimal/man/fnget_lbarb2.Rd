@@ -23,7 +23,10 @@ fnget_lbarb2(0.03, c(xb = 10/11, xb3 = (10/11)^(1/3), vbarHb = 0.001, k = 1))
 \seealso{
 Other scaled get functions: \code{\link{dget_lbarb2}};
   \code{\link{get_lbarb2}}; \code{\link{get_lbarb}};
-  \code{\link{get_lb}};
-  \code{\link{initial_scaled_reserve}}
+  \code{\link{get_lb}}; \code{\link{get_lp}};
+  \code{\link{get_tb}}; \code{\link{get_tm_s}};
+  \code{\link{get_tp}};
+  \code{\link{initial_scaled_reserve}};
+  \code{\link{reprod_rate}}
 }
 

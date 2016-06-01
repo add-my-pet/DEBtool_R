@@ -11,19 +11,7 @@
 #' @export
 initial_scaled_reserve <- function(f, pars, Lb0 = NA){
 
-  ## Remarks
-  # Like <get_ue0.html *get_ue0*>, but allows for vector arguments and
-  # input and output is not downscaled to dimensionless quantities,
-
-  ## Example of use
-  # p = [.8 .42 1.7 1.7 3.24 .012]; initial_scaled_reserve(1,p)
-
   with(as.list(pars), {
-#  VHb = p[1] # d mm^2, scaled maturity at birth: M_H^b/[[1-kap]{J_EAm}]
-#  g   = p[2] # -, energy investment ratio
-#  kJ  = p[3] # 1/d, maturity maintenance rate coefficient
-#  kM  = p[4] # 1/d, somatic maintenance rate coefficient
-#  v   = p[5] # mm/d, energy conductance
 
   # if kJ = kM: VHb = g * Lb^3/ v;
 
@@ -44,11 +32,9 @@ initial_scaled_reserve <- function(f, pars, Lb0 = NA){
       ## try get_lb1 or get_lb2 for higher accuracy
       Lb[i] <- lb * v/ kM/ g;
       uE0lbinfo <- get_ue0(q, f[i], lb)
-      uE0 <- uE0lbinfo[1]
+      uE0 <- uE0lbinfo[[1]]
       U0[i] <- uE0 * v^2/ g^2/ kM^3
     }
-
-
 
     return(data.frame(U0, Lb, info))
   })

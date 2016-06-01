@@ -27,8 +27,9 @@ list[data, units, label, weight] <- addpseudodata();
 }
 \seealso{
 Other add-my-pet auxiliary functions: \code{\link{addchem}};
-  \code{\link{fieldnm_wtxt}}; \code{\link{get_d_V}};
-  \code{\link{parscomp}}; \code{\link{print_filterflag}};
+  \code{\link{fieldnm_wtxt}}; \code{\link{fieldnmnst}};
+  \code{\link{get_d_V}}; \code{\link{parscomp}};
+  \code{\link{print_filterflag}};
   \code{\link{rmpseudodata}}; \code{\link{setweights}}
 }
 

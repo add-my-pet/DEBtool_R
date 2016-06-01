@@ -10,3 +10,5 @@ list <- structure(NA,class="result")
    x
 }
 
+strVec2Exp <- function(vec)
+  parse(text = paste(vec, collapse = ""))

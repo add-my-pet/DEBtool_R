@@ -36,6 +36,7 @@ Non-standard files/directories found at top level:
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
+addchem: no visible binding for global variable 'd.V'
 estim_options: no visible binding for global variable
   'pars_init_method'
 estim_options: no visible binding for global variable 'pseudodata_pets'
@@ -46,10 +47,26 @@ estim_pars: no visible binding for global variable 'auxData'
 estim_pars: no visible binding for global variable 'metaData'
 estim_pars: no visible binding for global variable 'txtData'
 estim_pars: no visible binding for global variable 'pets'
+estim_pars: no visible binding for global variable 'pars_init_method'
+estim_pars: no visible binding for global variable 'metaPar'
+estim_pars: no visible binding for global variable 'txtPar'
+estim_pars: no visible binding for global variable 'flag'
+estim_pars: no visible global function definition for 'get_pars'
+estim_pars: no visible binding for global variable 'data.pet1'
+estim_pars: no visible binding for global variable 'auxData.pet1'
+estim_pars: no visible binding for global variable 'metaData.pet1'
+estim_pars: no visible global function definition for 'readMat'
+estim_pars: no visible binding for global variable 'par2'
+estim_pars: no visible binding for global variable 'passSpec'
+estim_pars: no visible binding for global variable 'method'
+estim_pars: no visible global function definition for 'groupregr_f'
+estim_pars: no visible binding for global variable 'covRulesnm'
 mydata_pets: no visible binding for global variable 'pets'
-mydata_pets: no visible binding for global variable 'auxData'
-mydata_pets: no visible binding for global variable 'metaData'
-mydata_pets: no visible binding for global variable 'txtData'
+mydata_pets: no visible binding for global variable 'pseudodata_pets'
+mydata_pets: no visible binding for global variable 'dataTemp'
+mydata_pets: no visible binding for global variable 'unitsTemp'
+mydata_pets: no visible binding for global variable 'labelTemp'
+mydata_pets: no visible binding for global variable 'weightTemp'
 nmregr_options: no visible binding for global variable 'report'
 nmregr_options: no visible binding for global variable
   'max_step_number'
@@ -62,6 +79,12 @@ nmregr_options: no visible binding for global variable
 nmregr_options: no visible binding for global variable
   'pseudodata_pets'
 nmregr_options: no visible binding for global variable 'results_output'
+petregr_f: no visible global function definition for 'size'
+petregr_f: no visible binding for global variable 'auxvar'
+petregr_f: no visible global function definition for 'struct2vector'
+petregr_f: no visible binding for global variable 'nm'
+reach_birth: no visible binding for global variable 'l.b'
+results_pets: no visible binding for global variable 'pets'
 
 Found the following assignments to the global environment:
 File 'DEBtoolAnimal/R/estim_options.R':
@@ -94,7 +117,22 @@ File 'DEBtoolAnimal/R/nmregr_options.R':
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'get_lp'
+  'f'
+Documented arguments not in \usage in documentation object 'get_lp':
+  'eb'
+
+Undocumented arguments in documentation object 'get_tb'
+  'lb'
+Documented arguments not in \usage in documentation object 'get_tb':
+  'lb0'
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking examples ... ERROR
@@ -102,15 +140,15 @@ Running examples in 'DEBtoolAnimal-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: addpseudodata
-> ### Title: Adds pseudodata information into inputed data structures
-> ### Aliases: addpseudodata
+> ### Name: addchem
+> ### Title: Sets chemical parameters and text for units and labels
+> ### Aliases: addchem
 > 
 > ### ** Examples
 > 
-> list[data, units, label, weight] <- addpseudodata();
-Error in list[data, units, label, weight] <- addpseudodata() : 
-  object 'label' not found
+> pars_init_my_pet(metaData)
+Error in get_d_V(phylum, class) : object 'metaData' not found
+Calls: pars_init_my_pet -> addchem -> get_d_V
 Execution halted
 * checking PDF version of manual ... WARNING
 LaTeX errors when creating PDF version.
@@ -118,4 +156,4 @@ This typically indicates Rd problems.
 LaTeX errors found:
 * checking PDF version of manual without hyperrefs or index ... ERROR
 * DONE
-Status: 2 ERRORs, 1 WARNING, 2 NOTEs
+Status: 2 ERRORs, 2 WARNINGs, 2 NOTEs
