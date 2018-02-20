@@ -3,6 +3,7 @@
 #-------------------
 
 Dir='C:\\Users\\starrlight\\Documents\\GitHub\\Kooijman Rainbow trout'
+setwd(Dir)
 
 ## mydata_Oncorhynchus_mykiss: rainbow trout, steelhead
 # Bas Kooijman 2014/09/26
@@ -18,7 +19,7 @@ Dir='C:\\Users\\starrlight\\Documents\\GitHub\\Kooijman Rainbow trout'
 #   Dynamic Energy Budget theory for metabolic organisation. Cambridge Univ. Press
 #   Table 8.1, page 300
 # * *YaniHisa2002*
-#   T. Yanik, S. A. Hisar and C. Bölükbas (2002)
+#   T. Yanik, S. A. Hisar and C. BÃ¶lÃ¼kbas (2002)
 #   EARLY DEVELOPMENT AND GROWTH OF ARCTIC CHARR (SALVELINUS ALPINUS) AND RAINBOW TROUT (ONCORHYNCHUS MYKISS) AT A LOW WATER TEMPERATURE
 #   The Israeli Journal of Aquaculture - Bamidgeh 54(2), 2002, 73-
 # * <http://www.fishbase.org/summary/239 *fishbase*>
@@ -32,13 +33,11 @@ Dir='C:\\Users\\starrlight\\Documents\\GitHub\\Kooijman Rainbow trout'
 
 # Call all the functions
 
-setwd(Dir)
-names.files=list.files(Dir)
-for (i in c(1:length(names.files))){
-  if (!(names.files[i] %in% c("mydata.R", "mer.R","nmrerg_options.R", "mydata 2.R" , "verifs.R", "verifs 2.R"))){
-    source(names.files[i])  
-  }
-}
+names.files=list.files(getwd(), recursive = TRUE, pattern = ".R$")
+patterns<-paste("(^|/)", c("mydata", "mer.R","nmregr_options.R", 
+   "mydata 2.R" , "verifs.R", "verifs 2.R", "deSolve example.R"), sep="")
+names.source=names.files[-unique(unlist(lapply(patterns, grep, names.files, perl = TRUE)))] 
+mute <- lapply(names.source, source)
 
 COMPLETE = 2.5    # judge the level using LikaFrei2011  adjust if you have less or more data
 FIT = 9.4         # compute after having obtained the estimates
