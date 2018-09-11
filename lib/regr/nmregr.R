@@ -19,7 +19,7 @@ nmregr=function(func, p, varargin){
   # * func: string with name of user-defined function
   #
   #     f = func (p, xyw) with
-  #       p: k-vector with parameters; xyw: (n,c)-matrix; f: n-vector
+  #       p: k-vector with parameters; xyw: (n,c)-matrix or (n,c)-dataframe; f: n-vector
   #     [f1, f2, ...] = func (p, xyw1, xyw2, ...) with  p: k-vector  and
   #      xywi: (ni,k)-matrix; fi: ni-vector with model predictions
   #     The dependent variable in the output f; For xyw see below.
@@ -61,11 +61,11 @@ nmregr=function(func, p, varargin){
   i = 1 # initiate data set counter
   info = 1 # initiate info setting
   ci = as.character(i) # character string with value of i
-  if (!is.list(varargin)){
-    varargin=list(varargin)
+  if (!inherits(varargin, "list")){
+    varargin<-list(as.matrix(varargin)) #Change the matrix or dataframe to a 1-list
   }
   
-  nxyw = nrow(summary(varargin))  # number of data sets
+  nxyw = length(varargin)
   
   while (i <= nxyw){ # loop across data sets
     if (i == 1){
@@ -93,18 +93,18 @@ nmregr=function(func, p, varargin){
   W = vector(length=0)  # initiate observations and weight coefficients
 
   for (i in c(1:nxyw)) { # loop across data sets
-    ci = as.character(i) # character string with value of i
     # assing unnamed arguments to xyw1, xyw2, etc
-    eval(parse(text=paste('xyw', ci, ' = varargin[[', ci,']]', sep="")))
-    eval(parse(text=paste('N[', ci, ']  = nrow(xyw', ci, ')', sep=""))) # number of data points
-    eval(parse(text=paste('k= ncol(xyw', ci, ')', sep="")))
-    eval(parse(text=paste('Y = c(Y,xyw', ci, '[,2])', sep=""))) # append dependent variables
+    eval(parse(text=paste('xyw', i, ' = varargin[[', i,']]', sep="")))
+    eval(parse(text=paste('N[', i, ']  = nrow(xyw', i, ')', sep=""))) # number of data points
+    eval(parse(text=paste('k= ncol(xyw', i, ')', sep="")))
+    eval(parse(text=paste('Y = c(Y,xyw', i, '[,2])', sep=""))) # append dependent variables
     if (k > 2) {
-      eval(parse(text=paste('W = c(W, xyw', ci, '[,3])', sep=""))) # append weight coefficients
+      eval(parse(text=paste('W = c(W, xyw', i, '[,3])', sep=""))) # append weight coefficients
     } else {W = c(W, (ones(N[i],1)/ N[i]))} # append weight coefficients
 
   }
   
+  p <- as.matrix(p)
   q = p # copy input parameter matrix to output
   info = 1 # convergence has been successful
   
@@ -171,6 +171,7 @@ nmregr=function(func, p, varargin){
   # Following improvement suggested by L.Pfeffer at Stanford
   usual_delta = 0.05             # 5 percent deltas for non-zero terms
   zero_term_delta = 0.00025      # Even smaller delta for zero elements of q
+  # Why choose these values (1.05 times each non-zero parameter) to compute the initial simplex?
   for (j in  c(1:n_par)){
     y = xin
     if (y[j] != 0){
@@ -196,7 +197,7 @@ nmregr=function(func, p, varargin){
     print(paste('step ', itercount, ' ssq ', min(fv), '-',
            max(fv), ' ', how))
   }
-  info = 1;
+  info = 1; # I propose to remove this line, as info as already been assigned the value 1 before (l.109) and as not been modified since. Else remove it before.
   
   # Main algorithm ---------------------------------------------------------------------------------------------------------------------------------------
   # Iterate until the diameter of the simplex is less than tol_simplex
@@ -210,26 +211,27 @@ nmregr=function(func, p, varargin){
   
     how = ''
   
-  # Compute the reflection point
-  
+  # Compute the reflection point ----
   # xbar = average of the n (NOT n+1) best points
     xbar = rowSums(v[,one2n])/ n_par
     xr = (1 + rho) * xbar - rho * v[,np1]
     q[index,1] = xr
     eval(parse(text=paste('listf = func(q[,1],', listxyw, ')')))
     if (nxyw == 1){
-      fxr = t(W) * ((listf[[1]] - Y) ^ 2)
+      if(!inherits(varargin, "list")){listf <- list(listf)}
+      fxr = t(W) %*% ((listf[[1]] - Y) ^ 2)
     } else { fxr = t(W) %*% ((unlist(listf) - Y) ^ 2) }
 
     func_evals = func_evals + 1
   
     if (fxr < fv[,1]){
-    # Calculate the expansion point
+    # Calculate the expansion point ----
       xe = (1 + rho * chi) * xbar - rho * chi * v[, np1]
       q[index,1] = xe
       eval(parse(text=paste('listf = func(q[,1],', listxyw, ')')))
       if (nxyw == 1){
-          fxe = t(W) * ((listf[[1]] - Y) ^ 2)
+        if(!inherits(varargin, "list")){listf <- list(listf)}
+        fxe = t(W) %*% ((listf[[1]] - Y) ^ 2)
         } else {fxe = t(W) %*% ((unlist(listf) - Y) ^2)}
     
       func_evals = func_evals + 1
@@ -256,7 +258,8 @@ nmregr=function(func, p, varargin){
               q[index,1] = xc
               eval(parse(text=paste('listf = func(q[,1],', listxyw, ')')))
               if (nxyw == 1){
-                  fxc = t(W) %*% ((listf[[1]] - Y) ^ 2)
+                if(!inherits(varargin, "list")){listf <- list(listf)}
+                fxc = t(W) %*% ((listf[[1]] - Y) ^ 2)
                 } else{fxc = t(W) %*% ((unlist(listf) - Y) ^ 2)}
               func_evals = func_evals + 1
     
@@ -272,6 +275,7 @@ nmregr=function(func, p, varargin){
                 eval(parse(text=paste('listf = func(q[,1],', listxyw, ')')))
                 
                 if (nxyw == 1){
+                  if(!inherits(varargin, "list")){listf <- list(listf)}
                   fxcc = t(W) %*% ((listf[[1]] - Y) ^ 2)
                 }  else{fxcc = t(W) %*% ((unlist(listf) - Y) ^ 2)}
   
@@ -293,6 +297,7 @@ nmregr=function(func, p, varargin){
                 q[index,1] = v[,j]
                 eval(parse(text=paste('listf = func(q[,1],', listxyw, ')')))
                   if (nxyw == 1){
+                    if(!inherits(varargin, "list")){listf <- list(listf)}
                     fv[,j] = t(W) %*% ((listf[[1]] - Y) ^ 2)
                     } else {fv[,j] = t(W) %*% ((unlist(listf) - Y)^2)}
               }
