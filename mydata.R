@@ -1,14 +1,15 @@
-#-------------------
-#------------------- Translated from matlab code of Kooijman, see http://www.bio.vu.nl/thb/deb/deblab/add_my_pet_old/html/Oncorhynchus_mykiss.html
-#-------------------
+#
+# Translated from matlab code of Kooijman, see http://www.bio.vu.nl/thb/deb/deblab/add_my_pet_old/html/Oncorhynchus_mykiss.html
+#
 
-Dir='C:\\Users\\starrlight\\Documents\\GitHub\\Kooijman Rainbow trout'
-setwd(Dir)
+# Not useful when working within a Rproject
+# Dir='C:\\Users\\starrlight\\Documents\\GitHub\\Kooijman Rainbow trout'
+# setwd(Dir)
 
 ## mydata_Oncorhynchus_mykiss: rainbow trout, steelhead
 # Bas Kooijman 2014/09/26
 
-## References
+## References ----
 # * <http://www.bio.vu.nl/thb/deb/deblab/add_my_pet/add_my_pet.pdf *add_my_pet manual*> 
   # * <http://www.bio.vu.nl/thb/research/bib/LikaKear2011.html *LikaKear2011*>
   #   Lika, K., Kearney, M. R., Freitas, V., Veer, H. W. van der, Meer, J. van der, Wijsman, J. W. M., Pecquerie, L. and Kooijman, S. A. L. M.
@@ -19,7 +20,7 @@ setwd(Dir)
 #   Dynamic Energy Budget theory for metabolic organisation. Cambridge Univ. Press
 #   Table 8.1, page 300
 # * *YaniHisa2002*
-#   T. Yanik, S. A. Hisar and C. BÃ¶lÃ¼kbas (2002)
+#   T. Yanik, S. A. Hisar and C. Bölükbas (2002)
 #   EARLY DEVELOPMENT AND GROWTH OF ARCTIC CHARR (SALVELINUS ALPINUS) AND RAINBOW TROUT (ONCORHYNCHUS MYKISS) AT A LOW WATER TEMPERATURE
 #   The Israeli Journal of Aquaculture - Bamidgeh 54(2), 2002, 73-
 # * <http://www.fishbase.org/summary/239 *fishbase*>
@@ -31,10 +32,10 @@ setwd(Dir)
 # * wiki: able to spawn several times, each time separated by months
 
 
-# Call all the functions
+# Call all the functions ----
 
 names.files=list.files(getwd(), recursive = TRUE, pattern = ".R$")
-patterns<-paste("(^|/)", c("mydata", "mer.R","nmregr_options.R", 
+patterns<-paste("(^|/)", c("mydata", "mer.R", 
    "mydata 2.R" , "verifs.R", "verifs 2.R", "deSolve example.R"), sep="")
 names.source=names.files[-unique(unlist(lapply(patterns, grep, names.files, perl = TRUE)))] 
 mute <- lapply(names.source, source)
@@ -45,7 +46,7 @@ FIT = 9.4         # compute after having obtained the estimates
 
 # set data
 
-# zero-variate data
+# zero-variate data ----
 # real data
 ah = 33        #  1 d, age at hatch at f (YaniHisa2002: 30-36 d)
 T_ah = 273 + 8.5  # K, temperature for ab
@@ -102,7 +103,7 @@ txt_data = c(# for presentation of predictions
             '15 k_J, 1/d, maturity maint rate coefficient ' ,
             '16 kap_G, -, growth efficiency')
 
-# uni-variate data 
+# uni-variate data ----
 # t-Ww data from YaniHisa2002 at T = 273 + 8.5
 # initial weight 1.54 g
 
@@ -122,7 +123,8 @@ tW = matrix(c(          # time since birth (d), wet weight (g)
 tW = cbind(tW, tW[,2])
 tW[,3] = 5e-1/mean(tW[,2])^2  # append weight coefficients for WLS criterion
 
-# conversion coefficients (selected copy-paste from pars_my_pet)
+# conversion coefficients ----
+# (selected copy-paste from pars_my_pet)
 
 # chemical indices
 #       X     V     E     P
@@ -150,7 +152,7 @@ w_O = t(n_O) %*% c(12,  1 , 16 , 14)   # g/mol, mol-weights for organics
 # pack coefficients
 dwm = cbind(d_O, w_O, mu_O)  # g/cm^3, g/mol, kJ/mol spec density, mol weight, chem pot
 
-# parameters: initial values at T_ref
+# parameters: initial values at T_ref ----
 T_ref  = 293       # 1 K, temp for which rate pars are given  don't change this value
 T_A  = 8000        # 2 K, Arrhenius temp 
 f = 1              # 3 -, scaled functional response
@@ -188,36 +190,36 @@ txt_pars = c(    # for presentation of parameter estimates
             'k_J, 1/d'  ,'[E_G], J/cm^3'  ,  'E_Hh, J' , 'E_Hb, J' , 'E_Hj, J' ,
             'E_Hp, J'  , 'h_a, 1/d^2'    ,   's_G, -',  'f_tL, -',  'W_0, g')
 
-# estimate parameters
+# estimate parameters ----
 # 
 # nmregr_options('default')  # set options for parameter estimation                                #!!!!!!!!!!!!!!!!!!!!!!!!!!! nmregr_options ???
 # nmregr_options('max_step_number',1000)  # set options for parameter estimation
 # nmregr_options('max_fun_evals',2e4)    # set options for parameter estimation
 # 
-# pars = nmregr('predict_Oncorhynchus_mykiss', pars, list(Data,tW))    # WLS estimate parameters using overwrite
-# sd = 0 * pars[,1]                                  # initiate standard deviations
+pars = nmregr('predict_Oncorhynchus_mykiss', pars, list(Data,tW))    # WLS estimate parameters using overwrite
+sd = 0 * pars[,1]                                  # initiate standard deviations
 
-#  [cov cor sd] = pregr('predict_Oncorhynchus_mykiss', pars, Data, tW)  # get standard deviation for WLS
+[cov cor sd] = pregr('predict_Oncorhynchus_mykiss', pars, Data, tW)  # get standard deviation for WLS
 
-# get FIT
+# get FIT ----
 
 # Data[,3] = 0 
 # Data[1:9,3] = 1  # give unit weight to real data, zero to pseudo-data
 # merr = mre('predict_Oncorhynchus_mykiss', pars, Data, tW)  # WLS-method
 # FIT = 10 * (1 - merr)  # get mark for goodness of fit 
 
-# get predictions
+# get predictions ----
 
 tspan = data.frame(0:380)  # times for plotting length data
 predict=predict_Oncorhynchus_mykiss(pars[,1], Data, tspan)  # notice use of first column of pars only
 
-# PLOT
+# PLOT ----
 
 
 plot(tW[,2]~tW[,1], col="red", xlim=c(0,max(tspan[,1])), ylim=c(0, max(predict[[2]])))
 points(predict[[2]]~tspan[,1], type="l", col="green")
 
-## Results
+## Results ----
 # 
 # fprintf('FIT = #3.1f \n', FIT)
 # fprintf('COMPLETE = #3.1f \n\n', COMPLETE)

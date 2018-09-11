@@ -37,7 +37,7 @@ nmregr_options = function (key='inexistent', val=NA) {
   # nmregr_options('default'); nmregr_options('report', 0)
   
 
-  if (key=='default'){
+  if(key=='default'){
       report <<- 1
       max_step_number <<- 500
       max_fun_evals <<- 2000
@@ -84,19 +84,19 @@ nmregr_options = function (key='inexistent', val=NA) {
         cat('key ', key, ' is unkown')
       }
       if (numel(report) != 0){
-        cat('report = ', report)
+        cat('report = ', report, '\n')
       } else {print('report = unknown \n')}
       
       if (numel(max_step_number) != 0){
-        cat('max_step_number = ', max_step_number)
+        cat('max_step_number = ', max_step_number, '\n')
       } else {print('max_step_number = unkown \n')}
 
       if (numel(max_fun_evals) != 0){
-        cat('max_fun_evals = ', max_fun_evals)
+        cat('max_fun_evals = ', max_fun_evals, '\n')
       } else {print('max_fun_evals = unkown')}
 
       if (numel(tol_simplex) != 0){
-        cat('tol_simplex = ', tol_simplex)
+        cat('tol_simplex = ', tol_simplex, '\n')
       } else {print('tol_simplex = unknown \n')}
 
       if (numel(tol_fun) != 0){
